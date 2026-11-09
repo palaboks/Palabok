@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#081326">
+  <title>Staff Management | PALABOK COMMUNITY</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #081326;
+      color: #f4f7ff;
+    }
+
+    header {
+      padding: 20px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      background: #101e34;
+      border-bottom: 1px solid #293e5d;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .brand span {
+      color: #58b5ff;
+    }
+
+    header a {
+      color: #9ecaff;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    main {
+      max-width: 1050px;
+      margin: auto;
+      padding: 42px 22px;
+    }
+
+    .eyebrow {
+      color: #58b5ff;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    h1 {
+      margin: 12px 0;
+      font-size: 34px;
+    }
+
+    .intro {
+      color: #9eacc2;
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    .warning {
+      padding: 17px;
+      margin-bottom: 25px;
+      border: 1px solid rgba(255,190,80,.3);
+      border-radius: 12px;
+      background: rgba(255,190,80,.07);
+      color: #e8c98d;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    h2 {
+      margin: 30px 0 15px;
+      font-size: 20px;
+    }
+
+    .panel {
+      padding: 22px;
+      border: 1px solid #293e5d;
+      border-radius: 14px;
+      background: #101e34;
+      margin-bottom: 18px;
+    }
+
+    .staff-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      padding: 17px 0;
+      border-bottom: 1px solid #293e5d;
+    }
+
+    .staff-row:last-child {
+      border-bottom: 0;
+    }
+
+    .staff-name {
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .staff-id {
+      display: block;
+      margin-top: 6px;
+      color: #8193ad;
+      font-size: 11px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 7px 10px;
+      border-radius: 20px;
+      background: rgba(88,101,242,.18);
+      color: #b5bdff;
+      font-size: 10px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .owner {
+      background: rgba(255,190,80,.13);
+      color: #f0cd86;
+    }
+
+    .permissions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 13px;
+    }
+
+    .permission {
+      padding: 16px;
+      background: #0b1729;
+      border: 1px solid #263751;
+      border-radius: 10px;
+    }
+
+    .permission strong {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 13px;
+    }
+
+    .permission p {
+      color: #9eacc2;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .audit-note {
+      color: #aab8cd;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 25px;
+      text-align: center;
+      border-top: 1px solid #263751;
+      color: #71819a;
+      font-size: 12px;
+    }
+
+    @media(max-width: 550px) {
+      .staff-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="brand">PALABOK <span>MANAGEMENT</span></div>
+    <a href="staff-room.html">← Staff Room</a>
+  </header>
+
+  <main>
+
+    <div class="eyebrow">LEADERSHIP CONTROL CENTER</div>
+    <h1>Staff Management</h1>
+
+    <p class="intro">
+      Manage the community team, review assigned roles,
+      and maintain responsible moderation.
+    </p>
+
+    <div class="warning">
+      <strong>⚠ Restricted Management Panel</strong><br>
+      This is a frontend display template only. Real management
+      actions must require verified Firebase authentication,
+      server-side authorization, and audit logging.
+      Never trust usernames supplied by the browser.
+    </div>
+
+    <h2>Leadership Accounts</h2>
+
+    <section class="panel">
+
+      <div class="staff-row">
+        <div>
+          <div class="staff-name">dev_yohan</div>
+          <span class="staff-id">Primary Owner</span>
+        </div>
+        <span class="badge owner">OWNER · FULL CONTROL</span>
+      </div>
+
+      <div class="staff-row">
+        <div>
+          <div class="staff-name">audrick0240</div>
+          <span class="staff-id">Co-owner</span>
+        </div>
+        <span class="badge">CO-OWNER · MODERATION</span>
+      </div>
+
+    </section>
+
+    <h2>Permission Overview</h2>
+
+    <section class="panel">
+      <div class="permissions">
+
+        <div class="permission">
+          <strong>Primary Owner</strong>
+          <p>
+            Full system control, staff management,
+            role configuration, settings, and audit access.
+          </p>
+        </div>
+
+        <div class="permission">
+          <strong>Co-owner</strong>
+          <p>
+            Moderation, staff oversight, and full audit-log
+            visibility. Cannot remove, demote, ban, or override
+            the Primary Owner.
+          </p>
+        </div>
+
+        <div class="permission">
+          <strong>Administrator</strong>
+          <p>
+            Assigned management and moderation permissions,
+            limited by the Owner's configuration.
+          </p>
+        </div>
+
+        <div class="permission">
+          <strong>Moderator</strong>
+          <p>
+            Community moderation and handling of member reports.
+          </p>
+        </div>
+
+        <div class="permission">
+          <strong>Creator</strong>
+          <p>
+            Approved creator features and publishing permissions
+            granted by management.
+          </p>
+        </div>
+
+        <div class="permission">
+          <strong>Member</strong>
+          <p>
+            Standard community access and member features.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <h2>Owner Protection Policy</h2>
+
+    <section class="panel">
+      <p class="audit-note">
+        1. The Primary Owner cannot be removed by the Co-owner.<br>
+        2. The Co-owner cannot demote or ban the Primary Owner.<br>
+        3. The Co-owner cannot modify the Owner's permissions.<br>
+        4. Sensitive staff actions must be recorded in an audit log.<br>
+        5. Only the verified Primary Owner can change protected
+        ownership settings.<br>
+        6. All these restrictions must be enforced by trusted
+        backend code and Firebase Security Rules.
+      </p>
+    </section>
+
+    <h2>Audit Log Policy</h2>
+
+    <section class="panel">
+      <p class="audit-note">
+        The audit system should record who performed an action,
+        what action was performed, the affected account,
+        the timestamp, and the result. The Co-owner should
+        have read access to the complete audit history.
+        Ordinary staff should not be able to edit or delete logs.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    © <span id="year"></span> PALABOK COMMUNITY
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    /*
+      SECURITY IMPLEMENTATION REQUIRED:
+      - Verify immutable Discord user IDs, not usernames.
+      - Store protected roles in trusted Firestore records.
+      - Enforce owner/co-owner restrictions in backend functions.
+      - Prevent clients from editing their own roles.
+      - Write audit records from trusted backend code.
+      - Do not expose privileged operations in public HTML.
+    */
+  </script>
+
+</body>
+</html>
