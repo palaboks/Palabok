@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#081326">
+  <title>Applications | PALABOK COMMUNITY</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #081326;
+      color: #f4f7ff;
+    }
+
+    header {
+      padding: 20px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      background: #101e34;
+      border-bottom: 1px solid #263751;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .brand span {
+      color: #58b5ff;
+    }
+
+    header a {
+      color: #9ecaff;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    main {
+      max-width: 780px;
+      margin: auto;
+      padding: 42px 22px;
+    }
+
+    .eyebrow {
+      color: #58b5ff;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    h1 {
+      margin: 12px 0;
+      font-size: 34px;
+    }
+
+    .intro {
+      color: #9eacc2;
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    .form-card {
+      padding: 27px;
+      background: #101e34;
+      border: 1px solid #293e5d;
+      border-radius: 16px;
+    }
+
+    label {
+      display: block;
+      margin: 17px 0 8px;
+      color: #cbd6e7;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #344b6b;
+      border-radius: 9px;
+      outline: none;
+      background: #0b1729;
+      color: white;
+      font: inherit;
+      font-size: 13px;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #58b5ff;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 23px;
+      padding: 14px;
+      border: 0;
+      border-radius: 9px;
+      background: #5865f2;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #4752c4;
+    }
+
+    .notice, .message {
+      margin-top: 18px;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .notice {
+      background: rgba(57,169,255,.07);
+      border: 1px solid rgba(57,169,255,.2);
+      color: #aebed4;
+    }
+
+    .message {
+      display: none;
+      background: #20344f;
+      color: #c8e4ff;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 23px;
+      color: #8fc7ff;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 25px;
+      text-align: center;
+      border-top: 1px solid #263751;
+      color: #71819a;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="brand">PALABOK <span>COMMUNITY</span></div>
+    <a href="dashboard.html">← Dashboard</a>
+  </header>
+
+  <main>
+
+    <div class="eyebrow">JOIN OUR TEAM</div>
+    <h1>Community Applications</h1>
+
+    <p class="intro">
+      Interested in helping PALABOK COMMUNITY grow?
+      Submit an application to be considered for a Staff
+      or Creator opportunity.
+    </p>
+
+    <section class="form-card">
+
+      <form id="applicationForm">
+
+        <label for="applicantName">Your Name / Username</label>
+        <input
+          id="applicantName"
+          name="applicantName"
+          type="text"
+          maxlength="60"
+          placeholder="Enter your username"
+          required
+        >
+
+        <label for="discord">Discord Username</label>
+        <input
+          id="discord"
+          name="discord"
+          type="text"
+          maxlength="60"
+          placeholder="Your Discord username"
+          required
+        >
+
+        <label for="applicationType">Application Type</label>
+        <select id="applicationType" name="applicationType" required>
+          <option value="">Choose an application</option>
+          <option value="Staff">Staff Application</option>
+          <option value="Creator">Creator Application</option>
+        </select>
+
+        <label for="experience">Experience</label>
+        <textarea
+          id="experience"
+          name="experience"
+          maxlength="2000"
+          placeholder="Tell us about your experience..."
+          required
+        ></textarea>
+
+        <label for="reason">Why do you want to join?</label>
+        <textarea
+          id="reason"
+          name="reason"
+          maxlength="2000"
+          placeholder="Tell us why you want to be part of our team..."
+          required
+        ></textarea>
+
+        <label for="availability">Availability</label>
+        <select id="availability" name="availability" required>
+          <option value="">Select your availability</option>
+          <option value="Daily">Daily</option>
+          <option value="Several times a week">Several times a week</option>
+          <option value="Weekends">Weekends</option>
+          <option value="Occasionally">Occasionally</option>
+        </select>
+
+        <button type="submit">Submit Application</button>
+
+        <div class="message" id="message" role="status"></div>
+
+      </form>
+
+      <div class="notice">
+        <strong>Application Guidelines</strong><br>
+        • Provide honest and accurate information.<br>
+        • Submitting an application does not guarantee acceptance.<br>
+        • Final decisions are made by authorized management.<br>
+        • Never share passwords or login codes.
+        <br><br>
+        This is currently a frontend demonstration. Applications
+        will need Firebase integration before they can be submitted.
+      </div>
+
+    </section>
+
+    <a class="back" href="dashboard.html">
+      ← Back to Dashboard
+    </a>
+
+  </main>
+
+  <footer>
+    © <span id="year"></span> PALABOK COMMUNITY
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    const form = document.getElementById("applicationForm");
+    const message = document.getElementById("message");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      if (!form.reportValidity()) return;
+
+      message.style.display = "block";
+      message.textContent =
+        "Demo only: Your application was not sent. " +
+        "Firebase backend integration is required.";
+    });
+  </script>
+
+</body>
+</html>
