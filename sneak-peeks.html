@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#081326">
+  <title>Sneak Peeks | PALABOK COMMUNITY</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #081326;
+      color: #f4f7ff;
+    }
+
+    header {
+      padding: 20px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      background: #101e34;
+      border-bottom: 1px solid #263751;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .brand span {
+      color: #58b5ff;
+    }
+
+    nav {
+      display: flex;
+      gap: 17px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #aab8cd;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    main {
+      max-width: 1050px;
+      margin: auto;
+      padding: 45px 22px;
+    }
+
+    .eyebrow {
+      color: #58b5ff;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    h1 {
+      margin: 12px 0;
+      font-size: clamp(28px, 5vw, 38px);
+    }
+
+    .intro {
+      color: #9eacc2;
+      line-height: 1.8;
+      font-size: 14px;
+      max-width: 650px;
+      margin-bottom: 30px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .preview {
+      overflow: hidden;
+      background: #101e34;
+      border: 1px solid #293e5d;
+      border-radius: 15px;
+    }
+
+    .preview-image {
+      min-height: 175px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 25% 25%, #285b88, transparent 55%),
+        linear-gradient(135deg, #172b4a, #28204b);
+      color: #b9d9ff;
+      font-size: 45px;
+    }
+
+    .preview-content {
+      padding: 21px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 10px;
+      margin-bottom: 12px;
+      border-radius: 20px;
+      background: rgba(88,101,242,.18);
+      color: #aeb7ff;
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      font-size: 17px;
+      margin-bottom: 10px;
+    }
+
+    .preview-content p {
+      color: #aab8cd;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .meta {
+      margin-top: 16px;
+      color: #74869f;
+      font-size: 11px;
+    }
+
+    .notice {
+      margin-top: 28px;
+      padding: 18px;
+      border-radius: 12px;
+      background: rgba(57,169,255,.07);
+      border: 1px solid rgba(57,169,255,.2);
+      color: #aebed4;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 24px;
+      color: #8fc7ff;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 25px;
+      text-align: center;
+      border-top: 1px solid #263751;
+      color: #71819a;
+      font-size: 12px;
+    }
+
+    @media(max-width: 600px) {
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="brand">PALABOK <span>COMMUNITY</span></div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="announcements.html">Announcements</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="eyebrow">A FIRST LOOK</div>
+
+    <h1>Sneak Peeks</h1>
+
+    <p class="intro">
+      Get a preview of what's happening behind the scenes.
+      Discover upcoming projects, new features, and exclusive
+      community content from PALABOK COMMUNITY.
+    </p>
+
+    <section class="grid">
+
+      <article class="preview">
+        <div class="preview-image">🚀</div>
+        <div class="preview-content">
+          <span class="tag">IN DEVELOPMENT</span>
+          <h2>Community Portal Upgrade</h2>
+          <p>
+            A new and improved online experience with member
+            profiles, community tools, and staff features.
+          </p>
+          <div class="meta">Project Preview</div>
+        </div>
+      </article>
+
+      <article class="preview">
+        <div class="preview-image">🎨</div>
+        <div class="preview-content">
+          <span class="tag">COMING SOON</span>
+          <h2>Creative Projects</h2>
+          <p>
+            Explore upcoming creative ideas, collaborations,
+            and projects from our community members.
+          </p>
+          <div class="meta">Community Preview</div>
+        </div>
+      </article>
+
+      <article class="preview">
+        <div class="preview-image">🌟</div>
+        <div class="preview-content">
+          <span class="tag">PLANNED</span>
+          <h2>New Member Activities</h2>
+          <p>
+            More opportunities for members to participate,
+            connect, and contribute to the community.
+          </p>
+          <div class="meta">Activity Preview</div>
+        </div>
+      </article>
+
+    </section>
+
+    <div class="notice">
+      <strong>Content Management</strong><br>
+      These are sample previews. In the connected version,
+      authorized Owner and Co-owner accounts can publish,
+      update, and remove sneak peeks through the management
+      dashboard. Members can only view published content.
+    </div>
+
+    <a class="back" href="dashboard.html">
+      ← Back to Dashboard
+    </a>
+
+  </main>
+
+  <footer>
+    © <span id="year"></span> PALABOK COMMUNITY
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    /*
+      FUTURE FIREBASE INTEGRATION:
+      Read published previews from Firestore.
+      Store uploaded preview images in Firebase Storage.
+      Enforce publishing permissions on the backend.
+    */
+  </script>
+
+</body>
+</html>
