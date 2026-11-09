@@ -1,0 +1,466 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101014">
+  <title>Moderation Center | PALABOK COMMUNITY</title>
+
+  <style>
+    :root {
+      --bg: #101014;
+      --panel: #1b1b23;
+      --panel2: #252530;
+      --text: #f5f5f7;
+      --muted: #a5a5b3;
+      --accent: #f2a900;
+      --border: #363642;
+      --green: #55d69e;
+      --red: #ff7777;
+      --yellow: #ffd27a;
+      --blue: #80baff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      padding: 20px 7%;
+      background: #191920;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    header span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    main {
+      width: min(1150px, 90%);
+      margin: 35px auto;
+    }
+
+    .heading { margin-bottom: 25px; }
+
+    .heading h2 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .heading p {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .notice {
+      padding: 15px;
+      border: 1px solid #725719;
+      background: #302714;
+      color: #f5d58b;
+      border-radius: 10px;
+      margin-bottom: 22px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .stat-number {
+      display: block;
+      font-size: 29px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .section-title {
+      margin: 0 0 17px;
+      font-size: 19px;
+    }
+
+    .filters {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 13px;
+      background: var(--panel2);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+      font-family: Arial, sans-serif;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent);
+    }
+
+    select option { background: var(--panel2); }
+
+    .table-wrap { overflow-x: auto; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 700px;
+    }
+
+    th, td {
+      padding: 14px 12px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      font-size: 13px;
+    }
+
+    th {
+      color: var(--muted);
+      font-weight: normal;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 5px 9px;
+      border-radius: 20px;
+      font-size: 11px;
+    }
+
+    .pending {
+      color: var(--yellow);
+      background: #493719;
+    }
+
+    .reviewed {
+      color: var(--green);
+      background: #173b2d;
+    }
+
+    .high {
+      color: var(--red);
+      background: #482626;
+    }
+
+    .empty {
+      display: none;
+      text-align: center;
+      color: var(--muted);
+      padding: 25px;
+    }
+
+    .policy {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 14px;
+      padding-left: 20px;
+    }
+
+    .policy strong { color: var(--text); }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding: 28px 15px;
+      margin-top: 40px;
+      font-size: 12px;
+    }
+
+    @media (max-width: 650px) {
+      header { padding: 18px 5%; }
+      main { width: 92%; }
+      .heading h2 { font-size: 23px; }
+      .filters { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>PALABOK <span>COMMUNITY</span></h1>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="staff-room.html">Staff Room</a>
+    <a href="staff-management.html">Staff Management</a>
+    <a href="audit-logs.html">Audit Logs</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="heading">
+    <h2>Moderation Center</h2>
+    <p>Community safety, member reports, and moderation history.</p>
+  </section>
+
+  <div class="notice">
+    <strong>Preview Mode:</strong> The reports and records below are examples.
+    No real warnings, bans, or moderation actions can be performed here.
+    Connect a secure backend before using this page for actual moderation.
+  </div>
+
+  <section class="stats">
+    <div class="card">
+      <span class="stat-label">Open Reports</span>
+      <span class="stat-number">7</span>
+    </div>
+
+    <div class="card">
+      <span class="stat-label">Under Review</span>
+      <span class="stat-number">3</span>
+    </div>
+
+    <div class="card">
+      <span class="stat-label">Warnings Issued</span>
+      <span class="stat-number">15</span>
+    </div>
+
+    <div class="card">
+      <span class="stat-label">Sample Bans</span>
+      <span class="stat-number">2</span>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3 class="section-title">Member Reports</h3>
+
+    <div class="filters">
+      <input
+        type="search"
+        id="reportSearch"
+        placeholder="Search report, member, or reason..."
+        aria-label="Search reports"
+      >
+
+      <select id="statusFilter" aria-label="Filter reports by status">
+        <option value="all">All Statuses</option>
+        <option value="pending">Pending</option>
+        <option value="reviewed">Reviewed</option>
+      </select>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Report ID</th>
+            <th>Reported Member</th>
+            <th>Reason</th>
+            <th>Priority</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody id="reportTable">
+
+          <tr data-status="pending">
+            <td>REPORT-001</td>
+            <td>Member Example 01</td>
+            <td>Harassment</td>
+            <td><span class="badge high">High</span></td>
+            <td><span class="badge pending">Pending</span></td>
+          </tr>
+
+          <tr data-status="pending">
+            <td>REPORT-002</td>
+            <td>Member Example 02</td>
+            <td>Spam</td>
+            <td><span class="badge pending">Normal</span></td>
+            <td><span class="badge pending">Pending</span></td>
+          </tr>
+
+          <tr data-status="reviewed">
+            <td>REPORT-003</td>
+            <td>Member Example 03</td>
+            <td>Inappropriate content</td>
+            <td><span class="badge high">High</span></td>
+            <td><span class="badge reviewed">Reviewed</span></td>
+          </tr>
+
+          <tr data-status="pending">
+            <td>REPORT-004</td>
+            <td>Member Example 04</td>
+            <td>Disruptive behavior</td>
+            <td><span class="badge pending">Normal</span></td>
+            <td><span class="badge pending">Pending</span></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <div class="empty" id="emptyMessage">
+      No matching reports found.
+    </div>
+  </section>
+
+  <section class="card">
+    <h3 class="section-title">Moderation Action Types</h3>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Action</th>
+            <th>Description</th>
+            <th>Typical Use</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Warning</td>
+            <td>Formal notice to a member.</td>
+            <td>Minor rule violation</td>
+          </tr>
+
+          <tr>
+            <td>Timeout</td>
+            <td>Temporary restriction from participating.</td>
+            <td>Repeated disruption</td>
+          </tr>
+
+          <tr>
+            <td>Temporary Ban</td>
+            <td>Removal for a defined period.</td>
+            <td>Serious or repeated violations</td>
+          </tr>
+
+          <tr>
+            <td>Permanent Ban</td>
+            <td>Permanent removal from the community.</td>
+            <td>Severe violations</td>
+          </tr>
+
+          <tr>
+            <td>Dismiss Report</td>
+            <td>Close a report after review.</td>
+            <td>Insufficient evidence or no violation</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3 class="section-title">Moderation Guidelines</h3>
+
+    <ul class="policy">
+      <li><strong>Review evidence:</strong> Check the relevant messages and context before acting.</li>
+      <li><strong>Be fair:</strong> Apply the same community rules consistently.</li>
+      <li><strong>Document actions:</strong> Record the reason, responsible moderator, and timestamp.</li>
+      <li><strong>Protect privacy:</strong> Do not expose private reports or personal information publicly.</li>
+      <li><strong>Use appropriate actions:</strong> Match the response to the severity of the violation.</li>
+      <li><strong>Respect management boundaries:</strong> Moderators cannot override Owner-level permissions.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h3 class="section-title">Management Authority</h3>
+
+    <p class="policy">
+      <strong>Owner:</strong> dev_yohan — highest management authority.
+      <br>
+      <strong>Co-owner:</strong> audrick0240 — moderation and audit visibility,
+      subject to the Owner's protected permissions.
+    </p>
+
+    <p class="policy">
+      These are display labels only. Actual authority must be verified using
+      Discord user IDs and enforced through trusted backend authorization.
+    </p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  PALABOK COMMUNITY © 2026 — Moderation Center
+</footer>
+
+<script>
+  const searchInput = document.getElementById("reportSearch");
+  const statusFilter = document.getElementById("statusFilter");
+  const rows = document.querySelectorAll("#reportTable tr");
+  const emptyMessage = document.getElementById("emptyMessage");
+
+  function filterReports() {
+    const query = searchInput.value.toLowerCase().trim();
+    const selectedStatus = statusFilter.value;
+    let visible = 0;
+
+    rows.forEach(function(row) {
+      const text = row.textContent.toLowerCase();
+      const status = row.dataset.status;
+
+      const matchesText = text.includes(query);
+      const matchesStatus =
+        selectedStatus === "all" || status === selectedStatus;
+
+      const show = matchesText && matchesStatus;
+
+      row.style.display = show ? "" : "none";
+
+      if (show) visible++;
+    });
+
+    emptyMessage.style.display = visible === 0 ? "block" : "none";
+  }
+
+  searchInput.addEventListener("input", filterReports);
+  statusFilter.addEventListener("change", filterReports);
+</script>
+
+</body>
+</html>
