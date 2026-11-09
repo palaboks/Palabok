@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#081326">
+  <title>Announcements | PALABOK COMMUNITY</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #081326;
+      color: #f4f7ff;
+    }
+
+    header {
+      padding: 20px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      background: #101e34;
+      border-bottom: 1px solid #263751;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .brand span {
+      color: #58b5ff;
+    }
+
+    nav {
+      display: flex;
+      gap: 17px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #aab8cd;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    main {
+      max-width: 950px;
+      margin: auto;
+      padding: 45px 22px;
+    }
+
+    .heading {
+      margin-bottom: 30px;
+    }
+
+    .eyebrow {
+      color: #58b5ff;
+      font-size: 11px;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+
+    h1 {
+      margin: 12px 0;
+      font-size: clamp(28px, 5vw, 38px);
+    }
+
+    .intro {
+      color: #9eacc2;
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .announcement {
+      padding: 25px;
+      margin-bottom: 17px;
+      border: 1px solid #293e5d;
+      border-radius: 15px;
+      background: #101e34;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 10px;
+      margin-bottom: 14px;
+      border-radius: 20px;
+      background: rgba(88,101,242,.18);
+      color: #aeb7ff;
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .announcement h2 {
+      margin-bottom: 11px;
+      font-size: 19px;
+    }
+
+    .announcement p {
+      color: #aab8cd;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .meta {
+      margin-top: 17px;
+      color: #74869f;
+      font-size: 11px;
+    }
+
+    .empty {
+      display: none;
+      padding: 25px;
+      text-align: center;
+      color: #9eacc2;
+      border: 1px dashed #405574;
+      border-radius: 13px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 22px;
+      color: #8fc7ff;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 25px;
+      text-align: center;
+      border-top: 1px solid #263751;
+      color: #71819a;
+      font-size: 12px;
+    }
+
+    @media(max-width: 600px) {
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="brand">PALABOK <span>COMMUNITY</span></div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="sneak-peeks.html">Sneak Peeks</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="heading">
+      <div class="eyebrow">STAY UPDATED</div>
+      <h1>Community Announcements</h1>
+      <p class="intro">
+        Welcome to the official announcement center of
+        PALABOK COMMUNITY. Check this page for news,
+        important notices, and community updates.
+      </p>
+    </section>
+
+    <section id="announcementList">
+
+      <article class="announcement">
+        <span class="tag">WELCOME</span>
+        <h2>Welcome to PALABOK COMMUNITY!</h2>
+        <p>
+          Welcome to our community! This is a place to connect,
+          share ideas, collaborate, and build something together.
+          Please follow the community rules and respect everyone.
+        </p>
+        <div class="meta">Official Community Notice</div>
+      </article>
+
+      <article class="announcement">
+        <span class="tag">REMINDER</span>
+        <h2>Follow the Community Rules</h2>
+        <p>
+          Keep conversations respectful. Avoid harassment,
+          spam, impersonation, and sharing private information.
+          If you need help, contact the authorized staff team.
+        </p>
+        <div class="meta">Community Guidelines</div>
+      </article>
+
+      <article class="announcement">
+        <span class="tag">UPDATES</span>
+        <h2>More Community Features Coming Soon</h2>
+        <p>
+          We are preparing more features for our members,
+          including community activities, support tickets,
+          applications, and exclusive previews.
+        </p>
+        <div class="meta">Development Update</div>
+      </article>
+
+    </section>
+
+    <div class="empty" id="emptyMessage">
+      No announcements are available right now.
+    </div>
+
+    <a class="back" href="dashboard.html">
+      ← Back to Dashboard
+    </a>
+
+  </main>
+
+  <footer>
+    © <span id="year"></span> PALABOK COMMUNITY
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    /*
+      FUTURE FIREBASE INTEGRATION:
+      Load published announcements from Firestore.
+      Only authorized Owner/Co-owner permissions
+      should be allowed to publish or edit notices.
+    */
+  </script>
+
+</body>
+</html>
