@@ -1,0 +1,377 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Members | PALABOK COMMUNITY</title>
+  <style>
+    :root {
+      --bg: #101014;
+      --panel: #1b1b23;
+      --panel2: #252530;
+      --text: #f5f5f7;
+      --muted: #a5a5b3;
+      --accent: #f2a900;
+      --border: #363642;
+      --green: #55d69e;
+      --red: #ff7777;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      padding: 20px 7%;
+      background: #191920;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    header h1 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    header span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 13px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    main {
+      width: min(1100px, 90%);
+      margin: 35px auto;
+    }
+
+    .heading { margin-bottom: 25px; }
+
+    .heading h2 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .heading p {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .notice {
+      padding: 14px 16px;
+      border: 1px solid #725719;
+      background: #302714;
+      color: #f5d58b;
+      border-radius: 10px;
+      margin-bottom: 22px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .stat-number {
+      display: block;
+      font-size: 29px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .section-title {
+      margin: 0 0 17px;
+      font-size: 19px;
+    }
+
+    .search {
+      width: 100%;
+      padding: 13px 15px;
+      background: var(--panel2);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .search:focus { border-color: var(--accent); }
+
+    .member-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .member {
+      background: var(--panel2);
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      padding: 18px;
+    }
+
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #493719;
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      font-size: 19px;
+      font-weight: bold;
+      margin-bottom: 13px;
+    }
+
+    .member h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+    }
+
+    .member p {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 6px 0;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 20px;
+      background: #173b2d;
+      color: var(--green);
+      font-size: 11px;
+      margin-top: 9px;
+    }
+
+    .empty {
+      display: none;
+      color: var(--muted);
+      text-align: center;
+      padding: 25px;
+    }
+
+    .info-list {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+      padding-left: 20px;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding: 28px 15px;
+      margin-top: 40px;
+      font-size: 12px;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 18px 5%; }
+      main { width: 92%; }
+      .heading h2 { font-size: 23px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>PALABOK <span>COMMUNITY</span></h1>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="profile.html">My Profile</a>
+    <a href="staff-room.html">Staff Room</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="heading">
+    <h2>Community Members</h2>
+    <p>Discover the people who make PALABOK COMMUNITY active and welcoming.</p>
+  </section>
+
+  <div class="notice">
+    <strong>Preview Mode:</strong> The members shown here are sample entries.
+    Real Discord member information, account status, and member management
+    are not connected yet.
+  </div>
+
+  <section class="stats">
+    <div class="card">
+      <span class="stat-label">Total Members</span>
+      <span class="stat-number">250</span>
+    </div>
+
+    <div class="card">
+      <span class="stat-label">Online Members</span>
+      <span class="stat-number">38</span>
+    </div>
+
+    <div class="card">
+      <span class="stat-label">Creators</span>
+      <span class="stat-number">12</span>
+    </div>
+
+    <div class="card">
+      <span class="stat-label">Staff Members</span>
+      <span class="stat-number">8</span>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3 class="section-title">Member Directory</h3>
+
+    <input
+      type="search"
+      id="memberSearch"
+      class="search"
+      placeholder="Search members..."
+      aria-label="Search members"
+    >
+
+    <div class="member-grid" id="memberGrid">
+
+      <article class="member">
+        <div class="avatar">M</div>
+        <h3>Member Example 01</h3>
+        <p>Discord: @member_one</p>
+        <p>Role: Community Member</p>
+        <span class="status">Active</span>
+      </article>
+
+      <article class="member">
+        <div class="avatar">C</div>
+        <h3>Creator Example 01</h3>
+        <p>Discord: @creator_one</p>
+        <p>Role: Creator</p>
+        <span class="status">Active</span>
+      </article>
+
+      <article class="member">
+        <div class="avatar">S</div>
+        <h3>Staff Example 01</h3>
+        <p>Discord: @staff_one</p>
+        <p>Role: Staff</p>
+        <span class="status">Active</span>
+      </article>
+
+      <article class="member">
+        <div class="avatar">M</div>
+        <h3>Member Example 02</h3>
+        <p>Discord: @member_two</p>
+        <p>Role: Community Member</p>
+        <span class="status">Active</span>
+      </article>
+
+      <article class="member">
+        <div class="avatar">C</div>
+        <h3>Creator Example 02</h3>
+        <p>Discord: @creator_two</p>
+        <p>Role: Creator</p>
+        <span class="status">Active</span>
+      </article>
+
+      <article class="member">
+        <div class="avatar">M</div>
+        <h3>Member Example 03</h3>
+        <p>Discord: @member_three</p>
+        <p>Role: Community Member</p>
+        <span class="status">Active</span>
+      </article>
+
+    </div>
+
+    <p class="empty" id="emptyMessage">No matching members found.</p>
+  </section>
+
+  <section class="card">
+    <h3 class="section-title">Community Guidelines</h3>
+
+    <ul class="info-list">
+      <li>Respect all community members.</li>
+      <li>Do not harass, threaten, or discriminate against others.</li>
+      <li>Keep discussions appropriate and relevant.</li>
+      <li>Do not share private information without permission.</li>
+      <li>Follow the instructions of authorized moderators.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h3 class="section-title">Member Privacy</h3>
+    <p class="muted">
+      Only display member information that members have agreed to share.
+      Private account details, email addresses, and sensitive information
+      should never appear in the public directory.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  PALABOK COMMUNITY © 2026 — Members Directory
+</footer>
+
+<script>
+  const searchInput = document.getElementById("memberSearch");
+  const members = document.querySelectorAll(".member");
+  const emptyMessage = document.getElementById("emptyMessage");
+
+  searchInput.addEventListener("input", function () {
+    const query = this.value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    members.forEach(function (member) {
+      const matches = member.textContent.toLowerCase().includes(query);
+
+      member.style.display = matches ? "" : "none";
+
+      if (matches) visibleCount++;
+    });
+
+    emptyMessage.style.display = visibleCount === 0 ? "block" : "none";
+  });
+</script>
+
+</body>
+</html>
