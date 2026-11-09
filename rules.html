@@ -1,0 +1,416 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101014">
+  <title>Community Rules | PALABOK COMMUNITY</title>
+
+  <style>
+    :root {
+      --bg: #101014;
+      --panel: #1b1b23;
+      --panel2: #252530;
+      --text: #f5f5f7;
+      --muted: #a5a5b3;
+      --accent: #f2a900;
+      --border: #363642;
+      --green: #55d69e;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      padding: 20px 7%;
+      background: #191920;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    header span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    main {
+      width: min(950px, 90%);
+      margin: 35px auto;
+    }
+
+    .heading { margin-bottom: 25px; }
+
+    .heading h2 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .heading p {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .notice {
+      padding: 15px;
+      border: 1px solid #725719;
+      background: #302714;
+      color: #f5d58b;
+      border-radius: 10px;
+      margin-bottom: 22px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .rule-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 21px;
+      margin-bottom: 15px;
+    }
+
+    .rule-heading {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin-bottom: 10px;
+    }
+
+    .number {
+      width: 35px;
+      height: 35px;
+      border-radius: 9px;
+      background: #493719;
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .rule-heading h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .rule-card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .rule-card ul {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+      padding-left: 20px;
+      margin-bottom: 0;
+    }
+
+    .agreement {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      margin-top: 25px;
+    }
+
+    .agreement label {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .agreement input {
+      margin-top: 3px;
+      accent-color: var(--accent);
+    }
+
+    button {
+      margin-top: 17px;
+      padding: 12px 18px;
+      background: var(--accent);
+      color: #171717;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      opacity: .4;
+      cursor: not-allowed;
+    }
+
+    .status {
+      color: var(--green);
+      font-size: 13px;
+      margin-top: 12px;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding: 28px 15px;
+      margin-top: 40px;
+      font-size: 12px;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 18px 5%; }
+      main { width: 92%; }
+      .heading h2 { font-size: 23px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>PALABOK <span>COMMUNITY</span></h1>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="announcements.html">Announcements</a>
+    <a href="notifications.html">Notifications</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="heading">
+    <h2>Community Rules</h2>
+    <p>
+      Our goal is to maintain a safe, respectful, friendly, and welcoming
+      environment for everyone.
+    </p>
+  </section>
+
+  <div class="notice">
+    <strong>Important:</strong> By participating in PALABOK COMMUNITY,
+    members are expected to follow these guidelines. Community management
+    may update the rules when necessary.
+  </div>
+
+  <section class="rule-card">
+    <div class="rule-heading">
+      <div class="number">01</div>
+      <h3>Respect Everyone</h3>
+    </div>
+    <p>
+      Treat all members with respect. Harassment, bullying, threats,
+      discrimination, and personal attacks are not allowed.
+    </p>
+  </section>
+
+  <section class="rule-card">
+    <div class="rule-heading">
+      <div class="number">02</div>
+      <h3>No Spam or Flooding</h3>
+    </div>
+    <p>
+      Avoid repeated messages, excessive mentions, unwanted advertisements,
+      malicious links, and disruptive content.
+    </p>
+  </section>
+
+  <section class="rule-card">
+    <div class="rule-heading">
+      <div class="number">03</div>
+      <h3>Keep Content Appropriate</h3>
+    </div>
+    <p>
+      Do not share illegal, harmful, exploitative, or otherwise prohibited
+      content. Follow the platform's terms and applicable laws.
+    </p>
+  </section>
+
+  <section class="rule-card">
+    <div class="rule-heading">
+      <div class="number">04</div>
+      <h3>Protect Privacy</h3>
+    </div>
+    <p>
+      Never publish another person's private information, passwords,
+      private conversations, or personal images without permission.
+    </p>
+  </section>
+
+  <section class="rule-card">
+    <div class="rule-heading">
+      <div class="number">05</div>
+      <h3>Follow Staff Instructions</h3>
+    </div>
+    <p>
+      Cooperate with authorized moderators. If you disagree with a moderation
+      decision, use the appropriate appeal or support process.
+    </p>
+  </section>
+
+  <section class="rule-card">
+    <div class="rule-heading">
+      <div class="number">06</div>
+      <h3>No Impersonation</h3>
+    </div>
+    <p>
+      Do not pretend to be another member, staff member, creator, or
+      administrator. Do not use fake authority to mislead others.
+    </p>
+  </section>
+
+  <section class="rule-card">
+    <div class="rule-heading">
+      <div class="number">07</div>
+      <h3>Respect Creator Rights</h3>
+    </div>
+    <p>
+      Only submit content that you own or are authorized to use. Give
+      appropriate credit and do not steal or redistribute others' work
+      without permission.
+    </p>
+  </section>
+
+  <section class="rule-card">
+    <div class="rule-heading">
+      <div class="number">08</div>
+      <h3>Use Support Channels Properly</h3>
+    </div>
+    <p>
+      Submit genuine reports and support tickets. Do not abuse the ticket
+      system or submit intentionally false reports.
+    </p>
+  </section>
+
+  <section class="rule-card">
+    <div class="rule-heading">
+      <div class="number">09</div>
+      <h3>No Unauthorized Access</h3>
+    </div>
+    <p>
+      Do not attempt to bypass permissions, access private dashboards,
+      exploit vulnerabilities, or interfere with community systems.
+    </p>
+  </section>
+
+  <section class="rule-card">
+    <div class="rule-heading">
+      <div class="number">10</div>
+      <h3>Follow Platform Policies</h3>
+    </div>
+    <p>
+      All members must comply with Discord's applicable policies and the
+      terms of any platform used by the community.
+    </p>
+  </section>
+
+  <section class="rule-card">
+    <div class="rule-heading">
+      <div class="number">11</div>
+      <h3>Moderation and Consequences</h3>
+    </div>
+    <p>Depending on the severity and frequency of a violation, actions may include:</p>
+
+    <ul>
+      <li>Verbal reminder or warning</li>
+      <li>Formal warning</li>
+      <li>Temporary timeout or restriction</li>
+      <li>Temporary suspension or ban</li>
+      <li>Permanent removal for severe violations</li>
+    </ul>
+  </section>
+
+  <section class="rule-card">
+    <div class="rule-heading">
+      <div class="number">12</div>
+      <h3>Appeals and Fair Review</h3>
+    </div>
+    <p>
+      Members may request a review of moderation decisions through the
+      official support process. Reviews should consider available evidence
+      and relevant context.
+    </p>
+  </section>
+
+  <section class="agreement">
+    <h3>Member Acknowledgment</h3>
+
+    <p style="color:#a5a5b3;font-size:13px;line-height:1.6">
+      Please confirm that you have read and understood the community rules.
+    </p>
+
+    <label>
+      <input type="checkbox" id="agree">
+      I have read and agree to follow the PALABOK COMMUNITY rules.
+    </label>
+
+    <button id="confirmButton" type="button" disabled>
+      I Agree
+    </button>
+
+    <div class="status" id="agreementStatus"></div>
+
+    <p style="color:#888896;font-size:11px;margin-top:12px">
+      Demo acknowledgment only. This confirmation is not saved to an
+      account or database.
+    </p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  PALABOK COMMUNITY © 2026 — Community Rules
+</footer>
+
+<script>
+  const agree = document.getElementById("agree");
+  const button = document.getElementById("confirmButton");
+  const status = document.getElementById("agreementStatus");
+
+  agree.addEventListener("change", function() {
+    button.disabled = !agree.checked;
+    status.textContent = "";
+  });
+
+  button.addEventListener("click", function() {
+    if (!agree.checked) return;
+
+    status.textContent =
+      "Thank you! You have confirmed the rules in this preview.";
+  });
+</script>
+
+</body>
+</html>
