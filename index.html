@@ -1,96 +1,369 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#171923">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#081326">
+<meta name="description" content="Official PALABOK COMMUNITY Portal">
 <title>PALABOK COMMUNITY</title>
+
 <style>
-:root{--bg:#171923;--panel:#202331;--panel2:#292d3d;--line:#373b4d;--text:#f2f3f8;--muted:#a5aabd;--accent:#5865f2;--green:#39c98a;--red:#ed6575}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
-button,input,textarea,select{font:inherit}button{cursor:pointer;border:0;border-radius:9px;padding:10px 14px;background:var(--accent);color:white;font-weight:650}
-button.secondary{background:var(--panel2);color:var(--text);border:1px solid var(--line)}
-button:disabled{opacity:.5;cursor:not-allowed}
-header{height:66px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 18px;background:#191c28;position:sticky;top:0;z-index:5}
-.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.3px}.logo{width:38px;height:38px;border:1px dashed #777d91;border-radius:10px;display:grid;place-items:center;color:var(--muted);font-size:10px}
-.wrap{max-width:1100px;margin:auto;padding:28px 18px}.hero{padding:34px 0 24px;max-width:720px}.eyebrow{color:#aeb5ff;font-size:12px;font-weight:800;letter-spacing:1.5px}.hero h1{font-size:clamp(32px,6vw,54px);line-height:1.08;margin:10px 0}.muted{color:var(--muted)}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}.stat,.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}.stat strong{font-size:24px;display:block}.stat span{font-size:12px;color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.card h3{margin:0 0 5px}.card p{margin:0;color:var(--muted);font-size:14px}.icon{font-size:20px;margin-bottom:10px}.section-title{margin:28px 0 12px;font-size:19px}
-.notice{background:#242943;border:1px solid #414a7b;padding:14px;border-radius:12px;color:#dce0ff;margin:16px 0}
-.hidden{display:none!important}
-.layout{display:grid;grid-template-columns:245px 1fr;min-height:calc(100vh - 66px)}
-.sidebar{background:#1d202c;border-right:1px solid var(--line);padding:16px 10px}
-.side-head{font-size:11px;color:var(--muted);font-weight:800;letter-spacing:1px;padding:12px 10px 6px}
-.nav{width:100%;text-align:left;background:transparent;color:#c9ccda;font-weight:550;padding:9px 10px;margin:2px 0}
-.nav:hover,.nav.active{background:var(--panel2);color:white}.nav.locked{opacity:.55}
-.main{padding:24px;max-width:950px;width:100%;margin:0 auto}
-.channel-head{border-bottom:1px solid var(--line);padding-bottom:15px;margin-bottom:18px}
-.messages{min-height:300px}.msg{padding:12px 0;border-bottom:1px solid #303444}.msg b{font-size:14px}.msg small{color:var(--muted);margin-left:8px}.composer{display:flex;gap:8px;margin-top:16px}.composer input{flex:1;min-width:0}
-input,textarea,select{width:100%;background:#171a25;border:1px solid var(--line);border-radius:9px;padding:11px;color:var(--text);outline:none}
-textarea{min-height:100px;resize:vertical}label{font-size:13px;color:#c9ccda;display:block;margin:12px 0 6px}
-.formbox{max-width:620px;background:var(--panel);border:1px solid var(--line);padding:18px;border-radius:14px}
-.ticket-list{display:grid;gap:10px}.ticket{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--panel2);padding:13px;border-radius:10px}
-.tag{font-size:11px;color:#c9ceff;background:#343a66;padding:4px 8px;border-radius:99px}
-footer{border-top:1px solid var(--line);padding:22px;text-align:center;color:var(--muted);font-size:12px}
-@media(max-width:700px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.layout{grid-template-columns:1fr}.sidebar{border-right:0;border-bottom:1px solid var(--line);display:flex;overflow:auto;gap:5px;padding:8px}.side-head{display:none}.nav{white-space:nowrap;width:auto;margin:0}.main{padding:18px}.desktop-only{display:none}.hero{padding-top:18px}}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #081326;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+header {
+  background: #0d1b32;
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #20395d;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 21px;
+  font-weight: bold;
+  color: #60a5fa;
+  letter-spacing: 1px;
+}
+
+.logo span {
+  display: block;
+  font-size: 10px;
+  color: #ffffff;
+  letter-spacing: 4px;
+}
+
+nav {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+nav a {
+  color: #dce8fa;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: #60a5fa;
+}
+
+.login {
+  background: #2563eb;
+  padding: 10px 18px;
+  border-radius: 8px;
+}
+
+.hero {
+  min-height: 570px;
+  padding: 110px 8%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background:
+    radial-gradient(ellipse at top, #173a70 0%, transparent 65%),
+    #081326;
+}
+
+.tag {
+  color: #60a5fa;
+  font-size: 13px;
+  letter-spacing: 3px;
+  margin-bottom: 22px;
+}
+
+h1 {
+  font-size: clamp(35px, 7vw, 65px);
+  line-height: 1.15;
+  margin-bottom: 22px;
+}
+
+h1 span, h2 span {
+  color: #60a5fa;
+}
+
+.hero p {
+  max-width: 650px;
+  color: #b8c7dc;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 13px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.primary {
+  background: #2563eb;
+  color: white;
+}
+
+.secondary {
+  border: 1px solid #47648b;
+  color: white;
+}
+
+section.content {
+  padding: 75px 8%;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 38px;
+}
+
+.heading p {
+  color: #9fb0c9;
+  margin-top: 10px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
+
+.card {
+  background: #10213b;
+  border: 1px solid #20395d;
+  padding: 28px;
+  border-radius: 14px;
+  transition: .2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #3b82f6;
+}
+
+.card h3 {
+  color: #60a5fa;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: #b8c7dc;
+  font-size: 14px;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 18px;
+  color: #60a5fa;
+  text-decoration: none;
+}
+
+.info {
+  background: #10213b;
+  text-align: center;
+  padding: 65px 8%;
+}
+
+.info p {
+  max-width: 700px;
+  margin: 15px auto 25px;
+  color: #b8c7dc;
+}
+
+footer {
+  background: #050d1a;
+  border-top: 1px solid #20395d;
+  text-align: center;
+  padding: 28px;
+  color: #8295b2;
+  font-size: 13px;
+}
+
+footer strong {
+  color: #60a5fa;
+}
+
+@media(max-width: 700px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 13px;
+  }
+
+  .hero {
+    min-height: 500px;
+    padding: 80px 6%;
+  }
+
+  section.content {
+    padding: 55px 6%;
+  }
+}
 </style>
 </head>
-<body>
-<header>
- <div class="brand"><div class="logo">LOGO</div><span>PALABOK COMMUNITY</span></div>
- <button id="discordBtn" onclick="alert('Discord OAuth2 is not connected yet. Configure the Discord Developer Application and backend first.')">Verify with Discord</button>
-</header>
-<div id="home" class="wrap">
- <section class="hero">
-  <div class="eyebrow">OFFICIAL COMMUNITY PORTAL</div>
-  <h1>Your community.<br>One place.</h1>
-  <p class="muted">Welcome to the PALABOK COMMUNITY portal. Read server information, explore public updates, and verify your Discord account to unlock member features.</p>
-  <div class="actions">
-   <button onclick="alert('Discord verification will be enabled after OAuth2 setup.')">Verify with Discord</button>
-   <button class="secondary" onclick="document.getElementById('public-info').scrollIntoView({behavior:'smooth'})">Explore website</button>
-  </div>
- </section>
- <div class="stats">
-  <div class="stat"><strong>—</strong><span>SERVER MEMBERS · LIVE SYNC PENDING</span></div>
-  <div class="stat"><strong>—</strong><span>ACTIVE MEMBERS · LIVE SYNC PENDING</span></div>
-  <div class="stat"><strong>Discord</strong><span>OFFICIAL COMMUNITY</span></div>
- </div>
- <div class="notice">🔒 Member channels, Staff Room, and Sneak Peeks are protected. Discord verification and server-side role checks must be connected before access is granted.</div>
- <h2 id="public-info" class="section-title">Explore</h2>
- <div class="grid">
-  <div class="card"><div class="icon">ℹ️</div><h3>Server Information</h3><p>Community details, server guidelines, and useful links.</p></div>
-  <div class="card"><div class="icon">📜</div><h3>Server Rules</h3><p>Read the rules before joining conversations.</p></div>
-  <div class="card"><div class="icon">🎟️</div><h3>Ticket Center</h3><p>Submit applications, reports, and support requests after verification.</p></div>
-  <div class="card"><div class="icon">🛡️</div><h3>Staff Portal</h3><p>Restricted to registered staff accounts and verified Discord roles.</p></div>
- </div>
- <div class="actions"><a href="https://discord.gg/uCec3EAHp" target="_blank" rel="noopener" style="color:#b9c0ff">Join the Discord server ↗</a></div>
-</div>
 
-<div id="app" class="layout hidden">
- <aside class="sidebar">
-  <button class="nav active" data-page="general"># general-chat</button>
-  <button class="nav" data-page="announcements"># announcements</button>
-  <button class="nav" data-page="events"># events</button>
-  <button class="nav" data-page="tickets">🎟 tickets</button>
-  <button class="nav locked" data-page="staff">🔒 staff-room</button>
-  <button class="nav locked" data-page="sneak">🔒 sneak-peeks</button>
- </aside>
- <main class="main" id="content"></main>
-</div>
-<footer>PALABOK COMMUNITY © 2026 · Website preview — Discord authentication not connected</footer>
+<body>
+
+<header>
+  <div class="logo">
+    PALABOK
+    <span>COMMUNITY</span>
+  </div>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="announcements.html">Announcements</a>
+    <a href="sneak-peeks.html">Sneak Peeks</a>
+    <a href="login.html" class="login">Member Login</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="tag">COMMUNITY • CREATIVITY • CONNECTION</div>
+
+  <h1>
+    WELCOME TO<br>
+    <span>PALABOK COMMUNITY</span>
+  </h1>
+
+  <p>
+    A place to connect, create, collaborate,
+    and grow together. Discover our community,
+    stay updated, and become part of something amazing.
+  </p>
+
+  <div class="buttons">
+    <a href="login.html" class="btn primary">
+      Continue with Discord
+    </a>
+
+    <a href="#about" class="btn secondary">
+      Explore Community
+    </a>
+  </div>
+</section>
+
+<section class="content" id="about">
+  <div class="heading">
+    <h2>ONE COMMUNITY. <span>MANY POSSIBILITIES.</span></h2>
+    <p>Everything you need to stay connected with PALABOK.</p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>📢 Announcements</h3>
+      <p>
+        Read official community announcements,
+        important news, and updates.
+      </p>
+      <a href="announcements.html">View Announcements →</a>
+    </div>
+
+    <div class="card">
+      <h3>✨ Sneak Peeks</h3>
+      <p>
+        Explore upcoming projects, previews,
+        photos, and videos.
+      </p>
+      <a href="sneak-peeks.html">Explore Sneak Peeks →</a>
+    </div>
+
+    <div class="card">
+      <h3>👥 Member Portal</h3>
+      <p>
+        Access your member profile and
+        available community features.
+      </p>
+      <a href="login.html">Member Login →</a>
+    </div>
+
+    <div class="card">
+      <h3>🎫 Support Center</h3>
+      <p>
+        Get assistance from our authorized
+        community support team.
+      </p>
+      <a href="tickets.html">Open Support Center →</a>
+    </div>
+
+    <div class="card">
+      <h3>🛡️ Staff Portal</h3>
+      <p>
+        Authorized staff can access their
+        assigned management tools.
+      </p>
+      <a href="staff-room.html">Staff Portal →</a>
+    </div>
+
+    <div class="card">
+      <h3>🎬 Content Creators</h3>
+      <p>
+        Discover creator opportunities and
+        community content activities.
+      </p>
+      <a href="creator-management.html">Creator Center →</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="info">
+  <h2>RESPECT. CREATE. <span>BELONG.</span></h2>
+
+  <p>
+    We believe in building a friendly,
+    respectful, and creative community.
+    Respect others, protect private information,
+    and help make PALABOK a better place.
+  </p>
+
+  <a href="login.html" class="btn primary">
+    Join Our Community
+  </a>
+</section>
+</main>
+
+<footer>
+  <strong>PALABOK COMMUNITY</strong>
+  <p>© <span id="year"></span> PALABOK COMMUNITY. All rights reserved.</p>
+  <p>Community • Creativity • Connection</p>
+</footer>
+
 <script>
-const content=document.getElementById('content');
-const pages={
- general:`<div class="channel-head"><h2># general-chat</h2><div class="muted">Community conversation preview</div></div><div class="notice">This is a local interface preview. Messages are not sent to Discord or stored on a server.</div><div class="messages" id="messages"><div class="msg"><b>PALABOK BOT</b><small>Today</small><div>Welcome! Please keep the conversation respectful.</div></div></div><div class="composer"><input id="chatInput" placeholder="Message #general-chat" /><button onclick="sendMessage()">Send</button></div>`,
- announcements:`<div class="channel-head"><h2># announcements</h2><div class="muted">Official community announcements</div></div><div class="card"><h3>No announcements yet</h3><p>New updates will appear here when published by authorized staff.</p></div>`,
- events:`<div class="channel-head"><h2># events</h2><div class="muted">Community events and activities</div></div><div class="card"><h3>Upcoming events</h3><p>Event schedule will be published here.</p></div>`,
- tickets:`<div class="channel-head"><h2>🎟 Ticket Center</h2><div class="muted">Choose the type of help you need.</div></div><div class="ticket-list">${['Staff Application','Content Creator Application','Member Report','General Support','Game Bug Report','Partnership Request','Staff Complaint'].map(x=>`<div class="ticket"><b>${x}</b><button class="secondary" onclick="openTicket('${x}')">Open</button></div>`).join('')}</div>`,
- staff:`<div class="channel-head"><h2>🔒 Staff Room</h2></div><div class="notice">Restricted area. Access requires a verified Discord identity and an authorized staff role.</div>`,
- sneak:`<div class="channel-head"><h2>🔒 Sneak Peeks</h2></div><div class="notice">CONFIDENTIAL · Authorized personnel only. Access is denied until server-side staff authorization is connected.</div>`
-};
-function showPage(page){document.querySelectorAll('.nav').forEach(b=>b.classList.toggle('active',b.dataset.page===page));content.innerHTML=pages[page]||pages.general;}
-document.querySelectorAll('.nav').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
-function sendMessage(){const i=document.getElementById('chatInput');if(!i||!i.value.trim())return;const d=document.createElement('div');d.className='msg';d.innerHTML='<b>Preview User</b><small>just now</small>';const t=document.createElement('div');t.textContent=i.value;d.appendChild(t);document.getElementById('messages').appendChild(d);i.value='';}
-function openTicket(type){content.innerHTML=`<div class="channel-head"><h2>🎟 ${type}</h2><div class="muted">Ticket form preview</div></div><form class="formbox" onsubmit="event.preventDefault();alert('Ticket submission is not active until the backend and database are connected.');"><label>Discord username</label><input required placeholder="Your Discord username"><label>Roblox username (if applicable)</label><input placeholder="Roblox username"><label>Subject</label><input required placeholder="Brief subject"><label>Describe your request</label><textarea required placeholder="Provide details and relevant information"></textarea><label>Evidence link (optional)</label><input placeholder="Image/video URL"><div class="actions"><button type="submit">Submit ticket</button><button type="button" class="secondary" onclick="showPage('tickets')">Back</button></div></form>`;}
+document.getElementById("year").textContent =
+  new Date().getFullYear();
 </script>
-</body></html>
+
+</body>
+</html>
