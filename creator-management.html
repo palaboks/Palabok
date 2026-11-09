@@ -1,0 +1,412 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creator Management | PALABOK COMMUNITY</title>
+  <style>
+    :root {
+      --bg: #101014;
+      --panel: #1b1b23;
+      --panel2: #23232d;
+      --text: #f5f5f7;
+      --muted: #a5a5b3;
+      --accent: #f2a900;
+      --border: #343440;
+      --green: #55d69e;
+      --red: #ff7777;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      padding: 22px 7%;
+      background: #191920;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 21px;
+      letter-spacing: 1px;
+    }
+
+    header span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    main {
+      width: min(1100px, 90%);
+      margin: 35px auto;
+    }
+
+    .heading {
+      margin-bottom: 25px;
+    }
+
+    .heading h2 {
+      margin-bottom: 8px;
+      font-size: 28px;
+    }
+
+    .heading p, .muted {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .notice {
+      padding: 14px 16px;
+      border: 1px solid #725719;
+      background: #302714;
+      color: #f5d58b;
+      border-radius: 10px;
+      margin-bottom: 24px;
+      line-height: 1.5;
+      font-size: 13px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .stat-number {
+      display: block;
+      font-size: 30px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .section-title {
+      margin: 0 0 17px;
+      font-size: 19px;
+    }
+
+    .creator-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+    }
+
+    .creator {
+      background: var(--panel2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 17px;
+    }
+
+    .creator h3 {
+      margin: 0 0 7px;
+    }
+
+    .creator p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+      margin: 6px 0;
+    }
+
+    .status {
+      display: inline-block;
+      border-radius: 20px;
+      padding: 5px 10px;
+      font-size: 11px;
+      margin-top: 8px;
+      background: #173b2d;
+      color: var(--green);
+    }
+
+    .pending {
+      background: #493719;
+      color: #ffd27a;
+    }
+
+    .table-wrap { overflow-x: auto; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 13px 12px;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    th {
+      color: var(--muted);
+      font-weight: normal;
+    }
+
+    td { color: var(--text); }
+
+    .tag {
+      color: var(--accent);
+      font-size: 12px;
+    }
+
+    .permission-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .permission {
+      background: var(--panel2);
+      border-radius: 9px;
+      padding: 14px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .allowed { color: var(--green); }
+    .restricted { color: var(--red); }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 30px 15px;
+      font-size: 12px;
+      border-top: 1px solid var(--border);
+      margin-top: 45px;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 18px 5%; }
+      main { width: 92%; }
+      .heading h2 { font-size: 23px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>PALABOK <span>COMMUNITY</span></h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="staff-room.html">Staff Room</a>
+    <a href="staff-management.html">Staff Management</a>
+  </nav>
+</header>
+
+<main>
+  <section class="heading">
+    <h2>Creator Management</h2>
+    <p>Creator accounts, content submissions, and publishing workflow.</p>
+  </section>
+
+  <div class="notice">
+    <strong>Preview Mode:</strong> This page is currently a visual template.
+    Creator records, submissions, publishing actions, and permissions are
+    not yet connected to Firebase or Discord authentication.
+  </div>
+
+  <section class="stats">
+    <div class="card">
+      <span class="stat-label">Registered Creators</span>
+      <span class="stat-number">12</span>
+    </div>
+
+    <div class="card">
+      <span class="stat-label">Pending Submissions</span>
+      <span class="stat-number">4</span>
+    </div>
+
+    <div class="card">
+      <span class="stat-label">Published Projects</span>
+      <span class="stat-number">28</span>
+    </div>
+
+    <div class="card">
+      <span class="stat-label">Featured Creators</span>
+      <span class="stat-number">5</span>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3 class="section-title">Creator Directory</h3>
+
+    <div class="creator-list">
+      <article class="creator">
+        <h3>Creator Example 01</h3>
+        <p>Discord: @creator_one</p>
+        <p>Specialty: Graphics and Design</p>
+        <p>Projects: 8</p>
+        <span class="status">Active</span>
+      </article>
+
+      <article class="creator">
+        <h3>Creator Example 02</h3>
+        <p>Discord: @creator_two</p>
+        <p>Specialty: Video Editing</p>
+        <p>Projects: 5</p>
+        <span class="status">Active</span>
+      </article>
+
+      <article class="creator">
+        <h3>Creator Example 03</h3>
+        <p>Discord: @creator_three</p>
+        <p>Specialty: Community Content</p>
+        <p>Projects: 2</p>
+        <span class="status pending">Pending Review</span>
+      </article>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3 class="section-title">Project Submissions</h3>
+    <p class="muted">Sample submissions for the creator review process.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Project</th>
+            <th>Creator</th>
+            <th>Category</th>
+            <th>Submitted</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Community Banner</td>
+            <td>Creator Example 01</td>
+            <td>Graphics</td>
+            <td>Sample date</td>
+            <td class="tag">Pending Review</td>
+          </tr>
+
+          <tr>
+            <td>Welcome Video</td>
+            <td>Creator Example 02</td>
+            <td>Video</td>
+            <td>Sample date</td>
+            <td class="tag">In Review</td>
+          </tr>
+
+          <tr>
+            <td>Event Poster</td>
+            <td>Creator Example 03</td>
+            <td>Graphics</td>
+            <td>Sample date</td>
+            <td class="tag">Draft</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3 class="section-title">Publishing Workflow</h3>
+
+    <div class="permission-list">
+      <div class="permission">
+        <strong>01 — Submission</strong>
+        <p class="muted">Creator submits a project for review.</p>
+      </div>
+
+      <div class="permission">
+        <strong>02 — Review</strong>
+        <p class="muted">Authorized staff checks the content and provides feedback.</p>
+      </div>
+
+      <div class="permission">
+        <strong>03 — Approval</strong>
+        <p class="muted">An authorized reviewer approves the project for publishing.</p>
+      </div>
+
+      <div class="permission">
+        <strong>04 — Publishing</strong>
+        <p class="muted">Approved content can be published to the community website.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3 class="section-title">Creator Permissions</h3>
+
+    <div class="permission-list">
+      <div class="permission">
+        <strong class="allowed">Allowed</strong>
+        <p>Submit original projects.</p>
+        <p>View personal submission status.</p>
+        <p>Update own creator profile.</p>
+      </div>
+
+      <div class="permission">
+        <strong class="restricted">Restricted</strong>
+        <p>Approve own submissions.</p>
+        <p>Manage other creators.</p>
+        <p>Change staff permissions.</p>
+        <p>Access private moderation records.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3 class="section-title">Management Notes</h3>
+    <p class="muted">
+      Creator access should be assigned by authorized management.
+      Publishing permissions should be checked by the backend before
+      accepting or publishing any submission.
+    </p>
+    <p class="muted">
+      Owner: dev_yohan<br>
+      Co-owner: audrick0240
+    </p>
+  </section>
+</main>
+
+<footer>
+  PALABOK COMMUNITY © 2026 — Creator Management
+</footer>
+
+</body>
+</html>
