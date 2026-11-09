@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101014">
+  <title>Settings | PALABOK COMMUNITY</title>
+
+  <style>
+    :root {
+      --bg: #101014;
+      --panel: #1b1b23;
+      --panel2: #252530;
+      --text: #f5f5f7;
+      --muted: #a5a5b3;
+      --accent: #f2a900;
+      --border: #363642;
+      --green: #55d69e;
+      --red: #ff7777;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      padding: 20px 7%;
+      background: #191920;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    header span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    main {
+      width: min(1000px, 90%);
+      margin: 35px auto;
+    }
+
+    .heading { margin-bottom: 25px; }
+
+    .heading h2 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .heading p {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .notice {
+      padding: 15px;
+      border: 1px solid #725719;
+      background: #302714;
+      color: #f5d58b;
+      border-radius: 10px;
+      margin-bottom: 22px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: 19px;
+      margin: 0 0 18px;
+    }
+
+    .setting-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .setting-row:last-child { border-bottom: none; }
+
+    .setting-info strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    .setting-info p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    input[type="text"], select, textarea {
+      width: 100%;
+      padding: 12px;
+      background: var(--panel2);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      outline: none;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .field {
+      margin-bottom: 16px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .toggle {
+      width: 43px;
+      height: 23px;
+      accent-color: var(--accent);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    button {
+      border: none;
+      border-radius: 8px;
+      padding: 12px 17px;
+      background: var(--accent);
+      color: #171717;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    button:hover { opacity: .88; }
+
+    .secondary {
+      background: var(--panel2);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .danger {
+      background: #482626;
+      color: var(--red);
+      border: 1px solid #743737;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .status {
+      color: var(--green);
+      font-size: 12px;
+    }
+
+    .warning {
+      color: var(--red);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding: 28px 15px;
+      margin-top: 40px;
+      font-size: 12px;
+    }
+
+    @media (max-width: 650px) {
+      header { padding: 18px 5%; }
+      main { width: 92%; }
+      .heading h2 { font-size: 23px; }
+      .setting-row { align-items: flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>PALABOK <span>COMMUNITY</span></h1>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="staff-room.html">Staff Room</a>
+    <a href="audit-logs.html">Audit Logs</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="heading">
+    <h2>Community Settings</h2>
+    <p>Manage website preferences and review system configuration.</p>
+  </section>
+
+  <div class="notice">
+    <strong>Preview Mode:</strong> These settings are demonstration controls.
+    They do not update Firebase, Discord, or server configuration.
+    Real administrative access must be enforced by the backend.
+  </div>
+
+  <section class="card">
+    <h3 class="section-title">General Settings</h3>
+
+    <div class="field">
+      <label for="communityName">Community Name</label>
+      <input
+        type="text"
+        id="communityName"
+        value="PALABOK COMMUNITY"
+      >
+    </div>
+
+    <div class="field">
+      <label for="communityDescription">Community Description</label>
+      <textarea id="communityDescription" rows="3">A friendly community for everyone.</textarea>
+    </div>
+
+    <div class="field">
+      <label for="timezone">Display Timezone</label>
+      <select id="timezone">
+        <option value="Asia/Manila">Asia/Manila (Philippines)</option>
+        <option value="UTC">UTC</option>
+        <option value="Asia/Singapore">Asia/Singapore</option>
+      </select>
+    </div>
+
+    <div class="actions">
+      <button type="button" id="saveGeneral">Save Preview</button>
+      <span class="status" id="generalStatus"></span>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3 class="section-title">Website Preferences</h3>
+
+    <div class="setting-row">
+      <div class="setting-info">
+        <strong>Maintenance Mode</strong>
+        <p>Preview setting for planned website maintenance.</p>
+      </div>
+      <input class="toggle" type="checkbox" id="maintenance">
+    </div>
+
+    <div class="setting-row">
+      <div class="setting-info">
+        <strong>Public Announcements</strong>
+        <p>Preview preference for public announcement visibility.</p>
+      </div>
+      <input class="toggle" type="checkbox" id="announcements" checked>
+    </div>
+
+    <div class="setting-row">
+      <div class="setting-info">
+        <strong>Creator Submissions</strong>
+        <p>Preview preference for accepting creator submissions.</p>
+      </div>
+      <input class="toggle" type="checkbox" id="submissions" checked>
+    </div>
+
+    <div class="setting-row">
+      <div class="setting-info">
+        <strong>Member Registration</strong>
+        <p>Preview preference for new member registration.</p>
+      </div>
+      <input class="toggle" type="checkbox" id="registration" checked>
+    </div>
+
+    <div class="actions">
+      <button type="button" id="savePreferences">Save Preview</button>
+      <span class="status" id="preferencesStatus"></span>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3 class="section-title">Security Configuration</h3>
+
+    <div class="setting-row">
+      <div class="setting-info">
+        <strong>Discord OAuth2</strong>
+        <p>Authentication provider connection.</p>
+      </div>
+      <span class="warning">Not connected</span>
+    </div>
+
+    <div class="setting-row">
+      <div class="setting-info">
+        <strong>Firebase Database</strong>
+        <p>Database and persistent storage connection.</p>
+      </div>
+      <span class="warning">Not connected</span>
+    </div>
+
+    <div class="setting-row">
+      <div class="setting-info">
+        <strong>Backend Authorization</strong>
+        <p>Server-side role and permission verification.</p>
+      </div>
+      <span class="warning">Not configured</span>
+    </div>
+
+    <div class="setting-row">
+      <div class="setting-info">
+        <strong>Audit Logging</strong>
+        <p>Trusted recording of management actions.</p>
+      </div>
+      <span class="warning">Not configured</span>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3 class="section-title">Management Information</h3>
+
+    <div class="setting-row">
+      <div class="setting-info">
+        <strong>Owner</strong>
+        <p>Primary community administrator.</p>
+      </div>
+      <strong>dev_yohan</strong>
+    </div>
+
+    <div class="setting-row">
+      <div class="setting-info">
+        <strong>Co-owner</strong>
+        <p>Moderation and audit visibility.</p>
+      </div>
+      <strong>audrick0240</strong>
+    </div>
+
+    <p class="warning">
+      These usernames are display references only. Before deployment,
+      identify administrators using verified Discord user IDs and enforce
+      their permissions on the server.
+    </p>
+  </section>
+
+  <section class="card">
+    <h3 class="section-title">Danger Zone</h3>
+
+    <p class="warning">
+      Destructive actions must never be implemented as client-side-only
+      controls. They require server authorization, confirmation, and audit logs.
+    </p>
+
+    <div class="actions">
+      <button type="button" class="danger" id="dangerNotice">
+        View Security Reminder
+      </button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  PALABOK COMMUNITY © 2026 — Community Settings
+</footer>
+
+<script>
+  document.getElementById("saveGeneral").addEventListener("click", function() {
+    const name = document.getElementById("communityName").value.trim();
+
+    if (!name) {
+      alert("Community name cannot be empty.");
+      return;
+    }
+
+    document.getElementById("generalStatus").textContent =
+      "Preview values checked. Not saved to a server.";
+  });
+
+  document.getElementById("savePreferences").addEventListener("click", function() {
+    document.getElementById("preferencesStatus").textContent =
+      "Preview preferences checked. Not saved to Firebase.";
+  });
+
+  document.getElementById("dangerNotice").addEventListener("click", function() {
+    alert(
+      "Security reminder: No destructive action is available in this preview. " +
+      "Connect a secure backend before enabling administrative actions."
+    );
+  });
+</script>
+
+</body>
+</html>
