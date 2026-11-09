@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appeals | Palabok Community</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #101114;
+      color: #f4f4f4;
+    }
+    header {
+      background: #191a20;
+      padding: 20px;
+      border-bottom: 1px solid #38312a;
+      text-align: center;
+    }
+    header h1 { color: #e7b84b; margin: 0 0 8px; }
+    header p { color: #aaa; margin: 0; }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 14px;
+      background: #15161b;
+    }
+    nav a {
+      color: #e7b84b;
+      text-decoration: none;
+      padding: 9px 12px;
+      border: 1px solid #39332a;
+      border-radius: 7px;
+      font-size: 13px;
+    }
+    nav a:hover { background: #302719; }
+    main {
+      width: min(850px, 92%);
+      margin: 30px auto;
+    }
+    .card {
+      background: #1b1c22;
+      border: 1px solid #35353b;
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 20px;
+    }
+    h2 { color: #e7b84b; margin-top: 0; }
+    label {
+      display: block;
+      margin: 16px 0 7px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #45454d;
+      border-radius: 7px;
+      background: #111217;
+      color: white;
+      font: inherit;
+    }
+    textarea { min-height: 120px; resize: vertical; }
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid #e7b84b;
+      border-color: #e7b84b;
+    }
+    .check {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: #ccc;
+      font-size: 13px;
+      margin: 18px 0;
+    }
+    .check input { width: auto; margin-top: 2px; }
+    button {
+      width: 100%;
+      border: 0;
+      border-radius: 7px;
+      padding: 13px;
+      background: #e7b84b;
+      color: #171717;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 15px;
+    }
+    button:hover { background: #f5ca68; }
+    .notice {
+      background: #302719;
+      border: 1px solid #8d6b2d;
+      color: #f3d99e;
+      padding: 13px;
+      border-radius: 8px;
+      line-height: 1.6;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+    .demo {
+      color: #aaa;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    #result {
+      display: none;
+      padding: 13px;
+      border-radius: 7px;
+      margin-top: 15px;
+      background: #302719;
+      color: #f3d99e;
+      line-height: 1.5;
+    }
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #888;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>PALABOK COMMUNITY</h1>
+  <p>Moderation Appeals Center</p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="dashboard.html">Dashboard</a>
+  <a href="rules.html">Rules</a>
+  <a href="tickets.html">Tickets</a>
+  <a href="notifications.html">Notifications</a>
+</nav>
+
+<main>
+  <section class="card">
+    <h2>Submit an Appeal</h2>
+
+    <div class="notice">
+      <strong>Important:</strong> Be respectful and honest. Explain what happened,
+      why you believe the moderation action should be reviewed, and provide
+      any relevant evidence.
+    </div>
+
+    <form id="appealForm">
+      <label for="appealId">Appeal / Case ID (if available)</label>
+      <input id="appealId" type="text" placeholder="Example: CASE-001">
+
+      <label for="discordName">Discord Username</label>
+      <input id="discordName" type="text"
+             placeholder="Example: username" required>
+
+      <label for="discordId">Discord User ID</label>
+      <input id="discordId" type="text"
+             placeholder="Your Discord User ID" required>
+
+      <label for="action">Moderation Action</label>
+      <select id="action" required>
+        <option value="">Select an action</option>
+        <option>Warning</option>
+        <option>Timeout</option>
+        <option>Temporary Ban</option>
+        <option>Permanent Ban</option>
+        <option>Other</option>
+      </select>
+
+      <label for="date">Date of Moderation (if known)</label>
+      <input id="date" type="date">
+
+      <label for="reason">Why are you appealing?</label>
+      <textarea id="reason"
+        placeholder="Explain your side clearly and respectfully..."
+        required></textarea>
+
+      <label for="evidence">Evidence Link (optional)</label>
+      <input id="evidence" type="url"
+             placeholder="https://example.com/evidence">
+
+      <label class="check">
+        <input type="checkbox" id="agreement" required>
+        <span>I confirm that the information I provided is honest and accurate.
+        I understand that submitting an appeal does not guarantee that the
+        moderation action will be reversed.</span>
+      </label>
+
+      <button type="submit">Review Appeal Form</button>
+      <div id="result" role="status"></div>
+    </form>
+  </section>
+
+  <section class="card">
+    <h2>Appeal Guidelines</h2>
+    <ul class="demo">
+      <li>Submit only truthful and relevant information.</li>
+      <li>Do not threaten or harass moderators.</li>
+      <li>Include evidence when available.</li>
+      <li>Do not submit repeated appeals for the same case without new information.</li>
+      <li>Respect the final decision of the authorized community team.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Appeal Status</h2>
+    <p class="demo">
+      Real appeal tracking is not connected yet. Once a secure backend is
+      configured, members will be able to check whether their appeal is
+      pending, approved, or rejected.
+    </p>
+  </section>
+</main>
+
+<footer>
+  © 2026 Palabok Community. All rights reserved.
+</footer>
+
+<script>
+  document.getElementById("appealForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const result = document.getElementById("result");
+
+    if (!this.reportValidity()) return;
+
+    result.style.display = "block";
+    result.textContent =
+      "Demo only: Na-check ang form, pero HINDI ipinadala o na-save ang appeal. " +
+      "Hindi pa nakakonekta ang system sa Firebase o sa staff.";
+  });
+</script>
+
+</body>
+</html>
