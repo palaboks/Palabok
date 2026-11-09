@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#081326">
+  <title>Staff Room | PALABOK COMMUNITY</title>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #081326;
+      color: #f4f7ff;
+    }
+
+    header {
+      padding: 20px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      background: #101e34;
+      border-bottom: 1px solid #293e5d;
+    }
+
+    .brand { font-weight: 800; letter-spacing: 1px; }
+    .brand span { color: #58b5ff; }
+
+    header a {
+      color: #9ecaff;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 42px 22px;
+    }
+
+    .eyebrow {
+      color: #58b5ff;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    h1 { margin: 12px 0; font-size: 35px; }
+
+    .intro {
+      color: #9eacc2;
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 27px;
+    }
+
+    .security {
+      padding: 17px;
+      margin-bottom: 28px;
+      border: 1px solid rgba(255,190,80,.3);
+      border-radius: 12px;
+      background: rgba(255,190,80,.07);
+      color: #e8c98d;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    h2 { margin-bottom: 16px; font-size: 20px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 17px;
+    }
+
+    .card {
+      display: block;
+      padding: 22px;
+      min-height: 155px;
+      border: 1px solid #293e5d;
+      border-radius: 14px;
+      background: #101e34;
+      color: white;
+      text-decoration: none;
+      transition: .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: #58b5ff;
+    }
+
+    .icon { font-size: 27px; margin-bottom: 15px; }
+    .card h3 { margin-bottom: 9px; font-size: 16px; }
+
+    .card p {
+      color: #9eacc2;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .role-info {
+      margin-top: 28px;
+      padding: 22px;
+      border: 1px solid #293e5d;
+      border-radius: 14px;
+      background: #101e34;
+    }
+
+    .role-info p {
+      color: #aab8cd;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 25px;
+      text-align: center;
+      border-top: 1px solid #263751;
+      color: #71819a;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="brand">PALABOK <span>STAFF ROOM</span></div>
+    <a href="dashboard.html">← Dashboard</a>
+  </header>
+
+  <main>
+
+    <div class="eyebrow">AUTHORIZED TEAM WORKSPACE</div>
+    <h1>Staff Room</h1>
+
+    <p class="intro">
+      Welcome to the staff workspace. Use the available
+      tools responsibly to help manage and protect
+      PALABOK COMMUNITY.
+    </p>
+
+    <div class="security">
+      <strong>🔒 Restricted Area</strong><br>
+      This page is only a visual template. Hiding this page
+      from ordinary members is not sufficient security.
+      Firebase Authentication and server-side permission
+      checks must protect every staff action and private record.
+    </div>
+
+    <h2>Staff Tools</h2>
+
+    <section class="grid">
+
+      <a class="card" href="members.html">
+        <div class="icon">👥</div>
+        <h3>Member Directory</h3>
+        <p>Review community member information and account records.</p>
+      </a>
+
+      <a class="card" href="tickets.html">
+        <div class="icon">🎫</div>
+        <h3>Support Tickets</h3>
+        <p>Review member concerns and support requests.</p>
+      </a>
+
+      <a class="card" href="applications.html">
+        <div class="icon">📝</div>
+        <h3>Applications</h3>
+        <p>View staff and creator application submissions.</p>
+      </a>
+
+      <a class="card" href="announcements.html">
+        <div class="icon">📢</div>
+        <h3>Announcements</h3>
+        <p>View official community notices and updates.</p>
+      </a>
+
+      <a class="card" href="sneak-peeks.html">
+        <div class="icon">👀</div>
+        <h3>Sneak Peeks</h3>
+        <p>View previews and upcoming community projects.</p>
+      </a>
+
+      <a class="card" href="staff-management.html">
+        <div class="icon">🛡️</div>
+        <h3>Staff Management</h3>
+        <p>Restricted management area for authorized leadership.</p>
+      </a>
+
+      <a class="card" href="creator-management.html">
+        <div class="icon">🎨</div>
+        <h3>Creator Management</h3>
+        <p>Review creator accounts and community projects.</p>
+      </a>
+
+    </section>
+
+    <section class="role-info">
+      <h2>Staff Permissions</h2>
+      <p>
+        Staff permissions should be assigned by authorized
+        management. Moderation actions must be recorded in
+        an audit log. Owner protection must be enforced by
+        the backend, not by editable HTML or browser code.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    © <span id="year"></span> PALABOK COMMUNITY
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    /*
+      BACKEND REQUIREMENTS:
+      1. Verify Firebase user authentication.
+      2. Fetch the user's trusted role from Firestore.
+      3. Deny access unless the user has staff permissions.
+      4. Enforce every moderation permission server-side.
+      5. Record sensitive actions in an audit log.
+    */
+  </script>
+
+</body>
+</html>
