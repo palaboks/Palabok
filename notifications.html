@@ -1,0 +1,428 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101014">
+  <title>Notifications | PALABOK COMMUNITY</title>
+
+  <style>
+    :root {
+      --bg: #101014;
+      --panel: #1b1b23;
+      --panel2: #252530;
+      --text: #f5f5f7;
+      --muted: #a5a5b3;
+      --accent: #f2a900;
+      --border: #363642;
+      --green: #55d69e;
+      --blue: #80baff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      padding: 20px 7%;
+      background: #191920;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    header span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 13px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    main {
+      width: min(950px, 90%);
+      margin: 35px auto;
+    }
+
+    .heading { margin-bottom: 25px; }
+
+    .heading h2 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .heading p {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .notice {
+      padding: 15px;
+      border: 1px solid #725719;
+      background: #302714;
+      color: #f5d58b;
+      border-radius: 10px;
+      margin-bottom: 22px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 17px;
+    }
+
+    .toolbar h3 {
+      margin: 0;
+      font-size: 19px;
+    }
+
+    button, select {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 13px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    button {
+      background: var(--accent);
+      color: #171717;
+      font-weight: bold;
+    }
+
+    button.secondary {
+      background: var(--panel2);
+      color: var(--text);
+    }
+
+    select {
+      background: var(--panel2);
+      color: var(--text);
+    }
+
+    .notification {
+      display: flex;
+      gap: 14px;
+      padding: 17px 5px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .notification:last-child { border-bottom: none; }
+
+    .notification.unread {
+      background: #22222d;
+      border-radius: 9px;
+      padding-left: 12px;
+      padding-right: 12px;
+      margin: 5px 0;
+    }
+
+    .notification-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #493719;
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      font-size: 17px;
+      flex-shrink: 0;
+    }
+
+    .notification-content { flex: 1; }
+
+    .notification-content h4 {
+      margin: 0 0 6px;
+      font-size: 14px;
+    }
+
+    .notification-content p {
+      color: var(--muted);
+      margin: 0 0 7px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .notification-content small {
+      color: #888896;
+      font-size: 11px;
+    }
+
+    .unread-label {
+      display: inline-block;
+      color: var(--blue);
+      font-size: 10px;
+      margin-left: 6px;
+    }
+
+    .empty {
+      display: none;
+      text-align: center;
+      padding: 30px;
+      color: var(--muted);
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding: 28px 15px;
+      margin-top: 40px;
+      font-size: 12px;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 18px 5%; }
+      main { width: 92%; }
+      .heading h2 { font-size: 23px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>PALABOK <span>COMMUNITY</span></h1>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="profile.html">Profile</a>
+    <a href="announcements.html">Announcements</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="heading">
+    <h2>Notifications</h2>
+    <p>Stay updated with important community activity and announcements.</p>
+  </section>
+
+  <div class="notice">
+    <strong>Preview Mode:</strong> These are demonstration notifications.
+    They are stored only in this browser for this page and are not connected
+    to Firebase, Discord, tickets, or real-time alerts.
+  </div>
+
+  <section class="card">
+    <div class="toolbar">
+      <h3>Notification Center</h3>
+
+      <div>
+        <button type="button" class="secondary" id="markAll">
+          Mark All Read
+        </button>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <span id="unreadCount">3 unread notifications</span>
+
+      <select id="filter">
+        <option value="all">All Notifications</option>
+        <option value="unread">Unread Only</option>
+        <option value="read">Read Only</option>
+      </select>
+    </div>
+
+    <div id="notificationList">
+
+      <article class="notification unread" data-read="false">
+        <div class="notification-icon">!</div>
+        <div class="notification-content">
+          <h4>
+            New Community Announcement
+            <span class="unread-label">UNREAD</span>
+          </h4>
+          <p>A new announcement has been posted. Visit the announcements page for details.</p>
+          <small>Sample notification · Announcement</small>
+        </div>
+      </article>
+
+      <article class="notification unread" data-read="false">
+        <div class="notification-icon">T</div>
+        <div class="notification-content">
+          <h4>
+            Ticket Update
+            <span class="unread-label">UNREAD</span>
+          </h4>
+          <p>Your sample support ticket has received an update.</p>
+          <small>Sample notification · Support</small>
+        </div>
+      </article>
+
+      <article class="notification unread" data-read="false">
+        <div class="notification-icon">C</div>
+        <div class="notification-content">
+          <h4>
+            Creator Submission Reminder
+            <span class="unread-label">UNREAD</span>
+          </h4>
+          <p>Check the status of your creator submission in the creator portal.</p>
+          <small>Sample notification · Creator</small>
+        </div>
+      </article>
+
+      <article class="notification" data-read="true">
+        <div class="notification-icon">A</div>
+        <div class="notification-content">
+          <h4>Welcome to PALABOK COMMUNITY</h4>
+          <p>Thank you for joining our community. Please review the community guidelines.</p>
+          <small>Sample notification · Welcome</small>
+        </div>
+      </article>
+
+      <article class="notification" data-read="true">
+        <div class="notification-icon">S</div>
+        <div class="notification-content">
+          <h4>Community Update</h4>
+          <p>Check the community website for new features and updates.</p>
+          <small>Sample notification · System</small>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="empty" id="emptyMessage">
+      No notifications found.
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>Notification Preferences</h3>
+
+    <p style="color:#a5a5b3;font-size:13px;line-height:1.6">
+      These preferences are visual examples only. They do not change actual
+      email, Discord, push, or Firebase notification delivery.
+    </p>
+
+    <label style="display:block;margin:15px 0;font-size:14px">
+      <input type="checkbox" checked>
+      Announcement updates
+    </label>
+
+    <label style="display:block;margin:15px 0;font-size:14px">
+      <input type="checkbox" checked>
+      Ticket updates
+    </label>
+
+    <label style="display:block;margin:15px 0;font-size:14px">
+      <input type="checkbox" checked>
+      Creator submission updates
+    </label>
+
+    <label style="display:block;margin:15px 0;font-size:14px">
+      <input type="checkbox">
+      Promotional community updates
+    </label>
+  </section>
+
+</main>
+
+<footer class="footer">
+  PALABOK COMMUNITY © 2026 — Notifications
+</footer>
+
+<script>
+  const list = document.getElementById("notificationList");
+  const filter = document.getElementById("filter");
+  const count = document.getElementById("unreadCount");
+  const empty = document.getElementById("emptyMessage");
+
+  function updateNotifications() {
+    const notifications = [...list.querySelectorAll(".notification")];
+    const mode = filter.value;
+
+    let unread = 0;
+    let visible = 0;
+
+    notifications.forEach(function(item) {
+      const isRead = item.dataset.read === "true";
+
+      if (!isRead) unread++;
+
+      const show =
+        mode === "all" ||
+        (mode === "unread" && !isRead) ||
+        (mode === "read" && isRead);
+
+      item.style.display = show ? "flex" : "none";
+
+      if (show) visible++;
+    });
+
+    count.textContent = unread + " unread notifications";
+    empty.style.display = visible === 0 ? "block" : "none";
+  }
+
+  list.addEventListener("click", function(event) {
+    const item = event.target.closest(".notification");
+
+    if (!item) return;
+
+    item.dataset.read = "true";
+    item.classList.remove("unread");
+
+    const label = item.querySelector(".unread-label");
+
+    if (label) label.remove();
+
+    updateNotifications();
+  });
+
+  document.getElementById("markAll").addEventListener("click", function() {
+    list.querySelectorAll(".notification").forEach(function(item) {
+      item.dataset.read = "true";
+      item.classList.remove("unread");
+
+      const label = item.querySelector(".unread-label");
+
+      if (label) label.remove();
+    });
+
+    updateNotifications();
+  });
+
+  filter.addEventListener("change", updateNotifications);
+
+  updateNotifications();
+</script>
+
+</body>
+</html>
