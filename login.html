@@ -1,213 +1,244 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#081326">
-  <meta name="description" content="Sign in to PALABOK COMMUNITY">
-  <title>Member Login | PALABOK COMMUNITY</title>
+  <title>Palabok Community | Login</title>
+  <meta name="theme-color" content="#111827">
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; }
 
     body {
+      margin: 0;
       min-height: 100vh;
       display: flex;
-      align-items: center;
       justify-content: center;
-      padding: 24px;
-      font-family: Arial, Helvetica, sans-serif;
-      color: #f4f7ff;
-      background:
-        radial-gradient(circle at 15% 15%, #173b65 0, transparent 35%),
-        radial-gradient(circle at 85% 85%, #34205d 0, transparent 35%),
-        #07101f;
+      align-items: center;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      background: linear-gradient(135deg, #111827, #312e81, #111827);
     }
 
-    .login-card {
+    .container {
       width: 100%;
-      max-width: 440px;
-      padding: 42px 34px;
+      max-width: 420px;
+      padding: 35px 25px;
       text-align: center;
-      background: rgba(15, 29, 51, 0.94);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 22px;
-      box-shadow: 0 24px 80px rgba(0,0,0,0.4);
+      background: rgba(17, 24, 39, .94);
+      border: 1px solid #374151;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px #0008;
     }
 
     .logo {
-      width: 68px;
-      height: 68px;
-      margin: 0 auto 20px;
-      display: grid;
-      place-items: center;
-      border-radius: 20px;
-      background: linear-gradient(135deg, #39a9ff, #7658ff);
-      font-size: 32px;
-      font-weight: 900;
-      box-shadow: 0 8px 30px rgba(57,169,255,0.25);
+      font-size: 48px;
+      margin-bottom: 10px;
     }
 
-    h1 {
-      font-size: 25px;
-      letter-spacing: 1px;
-      margin-bottom: 9px;
-    }
+    h1 { margin: 8px 0; font-size: 27px; }
 
     .subtitle {
-      color: #9eacc2;
+      color: #9ca3af;
       font-size: 14px;
-      line-height: 1.7;
-      margin-bottom: 30px;
+      line-height: 1.6;
+      margin-bottom: 28px;
     }
 
-    .discord-button {
+    .discord-btn {
+      display: block;
       width: 100%;
-      min-height: 54px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 18px;
-      border: 0;
-      border-radius: 12px;
-      background: #5865f2;
-      color: white;
-      font-size: 15px;
-      font-weight: 700;
-      text-decoration: none;
-      cursor: pointer;
-      transition: 0.2s ease;
-    }
-
-    .discord-button:hover {
-      background: #4752c4;
-      transform: translateY(-2px);
-    }
-
-    .discord-icon {
-      font-size: 23px;
-    }
-
-    .divider {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin: 26px 0;
-      color: #71819a;
-      font-size: 12px;
-    }
-
-    .divider::before,
-    .divider::after {
-      content: "";
-      flex: 1;
-      height: 1px;
-      background: rgba(255,255,255,0.12);
-    }
-
-    .notice {
-      padding: 14px;
-      border: 1px solid rgba(57,169,255,0.2);
+      padding: 15px;
       border-radius: 10px;
-      background: rgba(57,169,255,0.07);
-      color: #b8c8df;
-      font-size: 12px;
-      line-height: 1.7;
-      text-align: left;
-    }
-
-    .back-link {
-      display: inline-block;
-      margin-top: 27px;
-      color: #8cbfff;
-      font-size: 13px;
-      text-decoration: none;
-    }
-
-    .back-link:hover {
+      background: #5865F2;
       color: white;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .discord-btn:hover { background: #4752c4; }
+
+    .discord-btn:disabled {
+      opacity: .6;
+      cursor: wait;
+    }
+
+    #status {
+      display: none;
+      margin-top: 20px;
+      padding: 13px;
+      border-radius: 9px;
+      font-size: 13px;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+
+    .info {
+      display: block !important;
+      background: #1e3a8a;
+      color: #dbeafe;
+    }
+
+    .success {
+      display: block !important;
+      background: #064e3b;
+      color: #d1fae5;
+    }
+
+    .error {
+      display: block !important;
+      background: #7f1d1d;
+      color: #fee2e2;
     }
 
     .footer {
-      margin-top: 28px;
-      color: #66758c;
-      font-size: 11px;
-    }
-
-    @media (max-width: 420px) {
-      .login-card {
-        padding: 34px 22px;
-      }
-
-      h1 {
-        font-size: 22px;
-      }
+      color: #6b7280;
+      font-size: 12px;
+      margin-top: 25px;
     }
   </style>
 </head>
 
 <body>
+  <main class="container">
+    <div class="logo">🍜</div>
 
-  <main class="login-card">
-
-    <div class="logo">P</div>
-
-    <h1>PALABOK COMMUNITY</h1>
+    <h1>Palabok Community</h1>
 
     <p class="subtitle">
-      Welcome back! Sign in with your Discord account
-      to access the community member portal.
+      Welcome! Sign in using your Discord account
+      to access the community portal.
     </p>
 
-    <!--
-      IMPORTANT:
-      Replace the # below with your real Firebase
-      Discord OAuth login route after backend setup.
-    -->
-    <a class="discord-button" href="#" id="discordLogin">
-      <span class="discord-icon">◉</span>
-      Continue with Discord
+    <a
+      id="discordLogin"
+      class="discord-btn"
+      href="https://palabok-discord-auth.castillanojomer10.workers.dev/auth/discord"
+    >
+      Login with Discord
     </a>
 
-    <div class="divider">SECURE MEMBER ACCESS</div>
-
-    <div class="notice">
-      <strong>Community security</strong><br>
-      • Use your own Discord account.<br>
-      • Never share your password or login codes.<br>
-      • Staff permissions are assigned securely by the server.<br>
-      • Fake accounts and impersonation are not allowed.
-    </div>
-
-    <a class="back-link" href="index.html">
-      ← Back to Home
-    </a>
+    <div id="status" role="status" aria-live="polite"></div>
 
     <div class="footer">
-      © <span id="year"></span> PALABOK COMMUNITY
-      <br>Community • Creativity • Connection
+      Palabok Community Portal
     </div>
-
   </main>
 
-  <script>
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+  <script type="module">
+    import { initializeApp } from
+      "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
 
-    document.getElementById("discordLogin").addEventListener("click", function(event) {
-      event.preventDefault();
+    import {
+      getAuth,
+      signInWithCustomToken
+    } from
+      "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
 
-      alert(
-        "Discord login is not connected yet. " +
-        "Firebase and Discord OAuth setup are required."
+    const firebaseConfig = {
+      apiKey: "AIzaSyBtu_ambv4HRDJwboKwieKD7JcbOdyhJmc",
+      authDomain: "palabok-community.firebaseapp.com",
+      projectId: "palabok-community",
+      storageBucket: "palabok-community.firebasestorage.app",
+      messagingSenderId: "860619525916",
+      appId: "1:860619525916:web:44f65c7e4e9f66dc2d74d9",
+      measurementId: "G-LR9VNJ0V3C"
+    };
+
+    const WORKER_URL =
+      "https://palabok-discord-auth.castillanojomer10.workers.dev";
+
+    const DASHBOARD_URL =
+      "https://palaboks.github.io/Palabok/dashboard.html";
+
+    const statusBox = document.getElementById("status");
+    const loginButton = document.getElementById("discordLogin");
+
+    function showStatus(message, type) {
+      statusBox.textContent = message;
+      statusBox.className = type;
+    }
+
+    loginButton.href = WORKER_URL + "/auth/discord";
+
+    async function startLogin() {
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      const params = new URLSearchParams(
+        window.location.hash.substring(1)
+      );
+
+      const token = params.get("firebaseCustomToken");
+      const error = new URLSearchParams(
+        window.location.search
+      ).get("error");
+
+      // Remove token/error from browser address bar.
+      if (window.location.hash || error) {
+        window.history.replaceState(
+          null,
+          "",
+          window.location.pathname
+        );
+      }
+
+      if (error) {
+        showStatus(
+          "Discord login error: " + error,
+          "error"
+        );
+        return;
+      }
+
+      if (!token) {
+        return;
+      }
+
+      loginButton.style.display = "none";
+
+      showStatus(
+        "Connecting to Firebase. Please wait...",
+        "info"
+      );
+
+      try {
+        await signInWithCustomToken(auth, token);
+
+        showStatus(
+          "Login successful! Opening your dashboard...",
+          "success"
+        );
+
+        window.location.replace(DASHBOARD_URL);
+
+      } catch (err) {
+        console.error("Firebase login error:", err);
+
+        showStatus(
+          "Firebase login failed: " +
+          (err.code || err.message) +
+          ". Please check the Cloudflare Worker configuration.",
+          "error"
+        );
+
+        loginButton.style.display = "block";
+      }
+    }
+
+    startLogin().catch(error => {
+      console.error(error);
+
+      showStatus(
+        "Unable to initialize Firebase: " + error.message,
+        "error"
       );
     });
   </script>
-
 </body>
 </html>
