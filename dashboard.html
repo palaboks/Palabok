@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,289 +8,158 @@
   <title>Dashboard | PALABOK COMMUNITY</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      min-height: 100vh;
-      font-family: Arial, sans-serif;
-      background: #081326;
-      color: #f4f7ff;
-    }
-
-    header {
-      height: 72px;
-      padding: 0 6%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #101e34;
-      border-bottom: 1px solid #263751;
-    }
-
-    .brand {
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-
-    .brand span {
-      color: #58b5ff;
-    }
-
-    nav {
-      display: flex;
-      gap: 20px;
-    }
-
-    nav a {
-      color: #aab8cd;
-      text-decoration: none;
-      font-size: 13px;
-    }
-
-    nav a:hover {
-      color: white;
-    }
-
-    main {
-      max-width: 1150px;
-      margin: auto;
-      padding: 42px 22px;
-    }
-
-    .welcome {
-      padding: 30px;
-      margin-bottom: 28px;
-      border: 1px solid #294363;
-      border-radius: 18px;
-      background: linear-gradient(120deg, #142d4d, #182344);
-    }
-
-    .eyebrow {
-      color: #69bdff;
-      font-size: 11px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      margin-bottom: 12px;
-    }
-
-    h1 {
-      font-size: clamp(27px, 5vw, 38px);
-      margin-bottom: 12px;
-    }
-
-    .welcome p {
-      color: #b2bfd2;
-      line-height: 1.7;
-    }
-
-    .profile {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-top: 24px;
-    }
-
-    .avatar {
-      width: 52px;
-      height: 52px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: #5865f2;
-      font-size: 23px;
-      font-weight: bold;
-    }
-
-    .profile small {
-      display: block;
-      margin-top: 5px;
-      color: #94a6c0;
-    }
-
-    h2 {
-      margin: 32px 0 17px;
-      font-size: 20px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 17px;
-    }
-
-    .card {
-      display: block;
-      padding: 23px;
-      min-height: 165px;
-      color: white;
-      text-decoration: none;
-      border: 1px solid #263b59;
-      border-radius: 15px;
-      background: #101e34;
-      transition: 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: #58b5ff;
-      background: #152944;
-    }
-
-    .card-icon {
-      font-size: 27px;
-      margin-bottom: 16px;
-    }
-
-    .card h3 {
-      margin-bottom: 9px;
-      font-size: 16px;
-    }
-
-    .card p {
-      color: #9cacc3;
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-    .status {
-      margin-top: 28px;
-      padding: 19px;
-      border-radius: 12px;
-      background: #101e34;
-      border: 1px solid #263b59;
-      color: #aab8cd;
-      font-size: 13px;
-      line-height: 1.7;
-    }
-
-    footer {
-      padding: 25px;
-      margin-top: 40px;
-      text-align: center;
-      border-top: 1px solid #263751;
-      color: #71819a;
-      font-size: 12px;
-    }
-
-    @media (max-width: 600px) {
-      header {
-        height: auto;
-        padding: 20px;
-        align-items: flex-start;
-        gap: 15px;
-        flex-direction: column;
-      }
-
-      nav {
-        flex-wrap: wrap;
-        gap: 14px;
-      }
-
-      main {
-        padding-top: 25px;
-      }
-    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{min-height:100vh;font-family:Arial,sans-serif;background:#081326;color:#f4f7ff}
+    header{min-height:72px;padding:18px 6%;display:flex;align-items:center;justify-content:space-between;gap:15px;background:#101e34;border-bottom:1px solid #263751}
+    .brand{font-weight:800;letter-spacing:1px}
+    .brand span{color:#58b5ff}
+    nav{display:flex;gap:17px;align-items:center;flex-wrap:wrap}
+    nav a{color:#aab8cd;text-decoration:none;font-size:13px}
+    nav a:hover{color:white}
+    button{cursor:pointer;border:0;border-radius:9px;padding:10px 15px;font-weight:bold}
+    .logout{background:#d94757;color:white}
+    main{max-width:1150px;margin:auto;padding:42px 22px}
+    .welcome{padding:30px;margin-bottom:28px;border:1px solid #294363;border-radius:18px;background:linear-gradient(120deg,#142d4d,#182344)}
+    .eyebrow{color:#69bdff;font-size:11px;font-weight:bold;letter-spacing:2px;margin-bottom:12px}
+    h1{font-size:clamp(27px,5vw,38px);margin-bottom:12px}
+    .welcome p{color:#b2bfd2;line-height:1.7}
+    .profile{display:flex;align-items:center;gap:15px;margin-top:24px}
+    .avatar{width:52px;height:52px;border-radius:50%;background:#5865f2;object-fit:cover;display:grid;place-items:center;font-size:23px;font-weight:bold}
+    .profile small{display:block;margin-top:5px;color:#94a6c0}
+    h2{margin:32px 0 17px;font-size:20px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:17px}
+    .card{display:block;padding:23px;min-height:165px;color:white;text-decoration:none;border:1px solid #263b59;border-radius:15px;background:#101e34;transition:.2s}
+    .card:hover{transform:translateY(-4px);border-color:#58b5ff;background:#152944}
+    .card-icon{font-size:27px;margin-bottom:16px}
+    .card h3{margin-bottom:9px;font-size:16px}
+    .card p{color:#9cacc3;font-size:13px;line-height:1.6}
+    .status{margin-top:28px;padding:19px;border-radius:12px;background:#101e34;border:1px solid #263b59;color:#aab8cd;font-size:13px;line-height:1.7}
+    footer{padding:25px;margin-top:40px;text-align:center;border-top:1px solid #263751;color:#71819a;font-size:12px}
+    #loading{padding:50px;text-align:center;color:#aab8cd}
+    #app{display:none}
+    @media(max-width:600px){header{align-items:flex-start;flex-direction:column}nav{gap:13px}main{padding-top:25px}.welcome{padding:22px}}
   </style>
 </head>
-
 <body>
 
+<div id="loading">Checking your account...</div>
+
+<div id="app">
   <header>
     <div class="brand">PALABOK <span>COMMUNITY</span></div>
-
     <nav>
       <a href="index.html">Home</a>
       <a href="announcements.html">News</a>
       <a href="profile.html">Profile</a>
-      <a href="login.html">Login</a>
+      <button class="logout" id="logoutBtn">Logout</button>
     </nav>
   </header>
 
   <main>
-
     <section class="welcome">
       <div class="eyebrow">MEMBER CONTROL CENTER</div>
-
-      <h1>Welcome to your Dashboard!</h1>
-
-      <p>
-        Your community space is ready. Explore updates,
-        connect with members, and participate in activities.
-      </p>
+      <h1>Welcome, <span id="displayName">Member</span>!</h1>
+      <p>Your community space is ready. Explore updates, connect with members, and participate in activities.</p>
 
       <div class="profile">
-        <div class="avatar">P</div>
+        <img id="avatar" class="avatar" alt="Profile avatar" src="https://cdn.discordapp.com/embed/avatars/0.png">
         <div>
-          <strong>Community Member</strong>
-          <small>Member account · PALABOK COMMUNITY</small>
+          <strong id="username">Loading...</strong>
+          <small>Authenticated member · PALABOK COMMUNITY</small>
         </div>
       </div>
     </section>
 
     <h2>Community Features</h2>
-
     <section class="grid">
-
-      <a class="card" href="announcements.html">
-        <div class="card-icon">📢</div>
-        <h3>Announcements</h3>
-        <p>Read official news, notices, and important updates.</p>
-      </a>
-
-      <a class="card" href="sneak-peeks.html">
-        <div class="card-icon">👀</div>
-        <h3>Sneak Peeks</h3>
-        <p>Discover upcoming projects and exclusive previews.</p>
-      </a>
-
-      <a class="card" href="tickets.html">
-        <div class="card-icon">🎫</div>
-        <h3>Support Tickets</h3>
-        <p>Get assistance by submitting a support request.</p>
-      </a>
-
-      <a class="card" href="applications.html">
-        <div class="card-icon">📝</div>
-        <h3>Applications</h3>
-        <p>Check opportunities to become part of the team.</p>
-      </a>
-
-      <a class="card" href="profile.html">
-        <div class="card-icon">👤</div>
-        <h3>My Profile</h3>
-        <p>View your member profile and account information.</p>
-      </a>
-
-      <a class="card" href="staff-room.html">
-        <div class="card-icon">🛡️</div>
-        <h3>Staff Room</h3>
-        <p>Staff-only area. Access requires verified permissions.</p>
-      </a>
-
+      <a class="card" href="announcements.html"><div class="card-icon">📢</div><h3>Announcements</h3><p>Read official news, notices, and important updates.</p></a>
+      <a class="card" href="sneak-peeks.html"><div class="card-icon">👀</div><h3>Sneak Peeks</h3><p>Discover upcoming projects and exclusive previews.</p></a>
+      <a class="card" href="tickets.html"><div class="card-icon">🎫</div><h3>Support Tickets</h3><p>Get assistance by submitting a support request.</p></a>
+      <a class="card" href="applications.html"><div class="card-icon">📝</div><h3>Applications</h3><p>Check opportunities to become part of the team.</p></a>
+      <a class="card" href="profile.html"><div class="card-icon">👤</div><h3>My Profile</h3><p>View your member profile and account information.</p></a>
+      <a class="card" href="staff-room.html"><div class="card-icon">🛡️</div><h3>Staff Room</h3><p>Staff access must be verified by a secure backend.</p></a>
     </section>
 
     <div class="status">
       <strong>Account Security</strong><br>
-      This dashboard is currently a frontend template.
-      Real account details, permissions, and private pages
-      must be connected to Firebase authentication and
-      server-side access rules before production use.
+      Firebase authentication is checked on this page. Staff permissions and private data still require server-side authorization and secure Firestore rules.
     </div>
-
   </main>
 
-  <footer>
-    © <span id="year"></span> PALABOK COMMUNITY
-  </footer>
+  <footer>© <span id="year"></span> PALABOK COMMUNITY</footer>
+</div>
 
-  <script>
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-  </script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+  import {
+    getAuth,
+    onAuthStateChanged,
+    signOut
+  } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
 
+  const firebaseConfig = {
+    apiKey: "AIzaSyBtu_ambv4HRDJwboKwieDK7JcbOdyJmc",
+    authDomain: "palabok-community.firebaseapp.com",
+    projectId: "palabok-community",
+    storageBucket: "palabok-community.firebasestorage.app",
+    messagingSenderId: "860619525916",
+    appId: "1:860619525916:web:44f65c7e4e9f66dc2d74d9",
+    measurementId: "G-LR9VNJ0V3C"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  onAuthStateChanged(auth, async (user) => {
+    if (!user) {
+      window.location.replace("login.html");
+      return;
+    }
+
+    try {
+      const tokenResult = await user.getIdTokenResult(true);
+      const claims = tokenResult.claims;
+
+      const name =
+        claims.discordUsername ||
+        user.displayName ||
+        "Community Member";
+
+      document.getElementById("displayName").textContent = name;
+      document.getElementById("username").textContent = name;
+
+      const avatarHash = claims.discordAvatar;
+      const discordId = claims.discordId;
+
+      if (discordId && avatarHash) {
+        document.getElementById("avatar").src =
+          `https://cdn.discordapp.com/avatars/${encodeURIComponent(discordId)}/${encodeURIComponent(avatarHash)}.png`;
+      } else {
+        document.getElementById("avatar").src =
+          "https://cdn.discordapp.com/embed/avatars/0.png";
+      }
+
+      document.getElementById("loading").style.display = "none";
+      document.getElementById("app").style.display = "block";
+
+    } catch (error) {
+      console.error("Account loading failed:", error);
+      document.getElementById("loading").textContent =
+        "Unable to load your account. Please refresh or log in again.";
+    }
+  });
+
+  document.getElementById("logoutBtn").addEventListener("click", async () => {
+    try {
+      await signOut(auth);
+      window.location.replace("login.html");
+    } catch (error) {
+      alert("Logout failed. Please try again.");
+      console.error(error);
+    }
+  });
+</script>
 </body>
 </html>
