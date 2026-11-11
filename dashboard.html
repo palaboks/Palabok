@@ -13,33 +13,39 @@
     header{min-height:72px;padding:18px 6%;display:flex;align-items:center;justify-content:space-between;gap:15px;background:#101e34;border-bottom:1px solid #263751}
     .brand{font-weight:800;letter-spacing:1px}
     .brand span{color:#58b5ff}
-    nav{display:flex;gap:17px;align-items:center;flex-wrap:wrap}
+    nav{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
     nav a{color:#aab8cd;text-decoration:none;font-size:13px}
     nav a:hover{color:white}
-    button{cursor:pointer;border:0;border-radius:9px;padding:10px 15px;font-weight:bold}
+    button{cursor:pointer;border:0;border-radius:9px;padding:11px 15px;font-weight:bold}
     .logout{background:#d94757;color:white}
-    main{max-width:1150px;margin:auto;padding:42px 22px}
-    .welcome{padding:30px;margin-bottom:28px;border:1px solid #294363;border-radius:18px;background:linear-gradient(120deg,#142d4d,#182344)}
+    main{max-width:1150px;margin:auto;padding:35px 22px}
+    .welcome{padding:30px;margin-bottom:25px;border:1px solid #294363;border-radius:18px;background:linear-gradient(120deg,#142d4d,#182344)}
     .eyebrow{color:#69bdff;font-size:11px;font-weight:bold;letter-spacing:2px;margin-bottom:12px}
-    h1{font-size:clamp(27px,5vw,38px);margin-bottom:12px}
+    h1{font-size:clamp(26px,5vw,38px);margin-bottom:12px}
     .welcome p{color:#b2bfd2;line-height:1.7}
-    .profile{display:flex;align-items:center;gap:15px;margin-top:24px}
+    .profile{display:flex;align-items:center;gap:14px;margin-top:22px}
     .avatar{width:52px;height:52px;border-radius:50%;background:#5865f2;object-fit:cover;display:grid;place-items:center;font-size:23px;font-weight:bold}
-    .profile small{display:block;margin-top:5px;color:#94a6c0}
-    h2{margin:32px 0 17px;font-size:20px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:17px}
-    .card{display:block;padding:23px;min-height:165px;color:white;text-decoration:none;border:1px solid #263b59;border-radius:15px;background:#101e34;transition:.2s}
-    .card:hover{transform:translateY(-4px);border-color:#58b5ff;background:#152944}
-    .card-icon{font-size:27px;margin-bottom:16px}
+    .profile small{display:block;margin-top:6px;color:#94a6c0}
+    .role{display:inline-block;margin-top:10px;padding:6px 11px;border-radius:20px;background:#203d5e;color:#80caff;font-size:11px;font-weight:bold}
+    h2{margin:30px 0 16px;font-size:20px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+    .card{display:block;padding:22px;min-height:150px;color:white;text-decoration:none;border:1px solid #263b59;border-radius:15px;background:#101e34;transition:.2s}
+    .card:hover{transform:translateY(-3px);border-color:#58b5ff;background:#152944}
+    .card-icon{font-size:27px;margin-bottom:14px}
     .card h3{margin-bottom:9px;font-size:16px}
     .card p{color:#9cacc3;font-size:13px;line-height:1.6}
-    .status{margin-top:28px;padding:19px;border-radius:12px;background:#101e34;border:1px solid #263b59;color:#aab8cd;font-size:13px;line-height:1.7}
+    .admin-card{border-color:#98742c;background:linear-gradient(120deg,#302819,#182344)}
+    .admin-card:hover{border-color:#f0b844}
+    .section-note{color:#9cacc3;font-size:13px;line-height:1.6;margin-top:-8px;margin-bottom:16px}
+    .status{margin-top:28px;padding:18px;border-radius:12px;background:#101e34;border:1px solid #263b59;color:#aab8cd;font-size:13px;line-height:1.7}
     footer{padding:25px;margin-top:40px;text-align:center;border-top:1px solid #263751;color:#71819a;font-size:12px}
     #loading{padding:50px;text-align:center;color:#aab8cd}
     #app{display:none}
-    @media(max-width:600px){header{align-items:flex-start;flex-direction:column}nav{gap:13px}main{padding-top:25px}.welcome{padding:22px}}
+    .hidden{display:none!important}
+    @media(max-width:600px){header{align-items:flex-start;flex-direction:column}nav{gap:12px}main{padding-top:24px}.welcome{padding:22px}}
   </style>
 </head>
+
 <body>
 
 <div id="loading">Checking your account...</div>
@@ -57,48 +63,141 @@
 
   <main>
     <section class="welcome">
-      <div class="eyebrow">MEMBER CONTROL CENTER</div>
+      <div class="eyebrow" id="dashboardLabel">COMMUNITY DASHBOARD</div>
+
       <h1>Welcome, <span id="displayName">Member</span>!</h1>
-      <p>Your community space is ready. Explore updates, connect with members, and participate in activities.</p>
+
+      <p id="welcomeText">
+        Welcome to PALABOK COMMUNITY. Connect with the community and explore available features.
+      </p>
 
       <div class="profile">
-        <img id="avatar" class="avatar" alt="Profile avatar" src="https://cdn.discordapp.com/embed/avatars/0.png">
+        <img id="avatar" class="avatar"
+          alt="Profile avatar"
+          src="https://cdn.discordapp.com/embed/avatars/0.png">
+
         <div>
           <strong id="username">Loading...</strong>
-          <small>Authenticated member · PALABOK COMMUNITY</small>
+          <small id="email">Loading email...</small>
+          <span class="role" id="roleBadge">MEMBER</span>
         </div>
       </div>
     </section>
 
     <h2>Community Features</h2>
+
     <section class="grid">
-      <a class="card" href="announcements.html"><div class="card-icon">📢</div><h3>Announcements</h3><p>Read official news, notices, and important updates.</p></a>
-      <a class="card" href="sneak-peeks.html"><div class="card-icon">👀</div><h3>Sneak Peeks</h3><p>Discover upcoming projects and exclusive previews.</p></a>
-      <a class="card" href="tickets.html"><div class="card-icon">🎫</div><h3>Support Tickets</h3><p>Get assistance by submitting a support request.</p></a>
-      <a class="card" href="applications.html"><div class="card-icon">📝</div><h3>Applications</h3><p>Check opportunities to become part of the team.</p></a>
-      <a class="card" href="profile.html"><div class="card-icon">👤</div><h3>My Profile</h3><p>View your member profile and account information.</p></a>
-      <a class="card" href="staff-room.html"><div class="card-icon">🛡️</div><h3>Staff Room</h3><p>Staff access must be verified by a secure backend.</p></a>
+      <a class="card" href="general-chat.html">
+        <div class="card-icon">💬</div>
+        <h3>General Chat</h3>
+        <p>Chat and communicate with other community members.</p>
+      </a>
+
+      <a class="card" href="announcements.html">
+        <div class="card-icon">📢</div>
+        <h3>Announcements</h3>
+        <p>Read official news, notices, and important updates.</p>
+      </a>
+
+      <a class="card" href="sneak-peeks.html">
+        <div class="card-icon">👀</div>
+        <h3>Sneak Peeks</h3>
+        <p>Discover upcoming projects and exclusive previews.</p>
+      </a>
+
+      <a class="card" href="tickets.html">
+        <div class="card-icon">🎫</div>
+        <h3>Support Tickets</h3>
+        <p>Get assistance by submitting a support request.</p>
+      </a>
+
+      <a class="card" href="applications.html">
+        <div class="card-icon">📝</div>
+        <h3>Applications</h3>
+        <p>Check opportunities to become part of the team.</p>
+      </a>
+
+      <a class="card" href="profile.html">
+        <div class="card-icon">👤</div>
+        <h3>My Profile</h3>
+        <p>View your account and member information.</p>
+      </a>
+    </section>
+
+    <section id="customSection" class="hidden">
+      <h2>Assigned Role Features</h2>
+      <p class="section-note">
+        These features are displayed according to your assigned community role.
+      </p>
+      <div class="grid" id="customFeatures"></div>
+    </section>
+
+    <section id="adminSection" class="hidden">
+      <h2>Administration Center</h2>
+      <p class="section-note">
+        Authorized Owner and Co-Owner access only.
+      </p>
+
+      <div class="grid">
+        <a class="card admin-card" href="admin.html">
+          <div class="card-icon">👑</div>
+          <h3>Admin Dashboard</h3>
+          <p>Manage community administration and system settings.</p>
+        </a>
+
+        <a class="card admin-card" href="members.html">
+          <div class="card-icon">👥</div>
+          <h3>Member Management</h3>
+          <p>View registered accounts and manage member roles.</p>
+        </a>
+
+        <a class="card admin-card" href="role-management.html">
+          <div class="card-icon">🛡️</div>
+          <h3>Role Management</h3>
+          <p>Manage custom roles and assigned permissions.</p>
+        </a>
+
+        <a class="card admin-card" href="audit-logs.html">
+          <div class="card-icon">📋</div>
+          <h3>Activity Logs</h3>
+          <p>Review administrative actions and account changes.</p>
+        </a>
+      </div>
     </section>
 
     <div class="status">
-      <strong>Account Security</strong><br>
-      Firebase authentication is checked on this page. Staff permissions and private data still require server-side authorization and secure Firestore rules.
+      <strong>Account Information</strong><br>
+      Authentication: <span id="authStatus">Checking...</span><br>
+      Assigned role: <span id="accountRole">MEMBER</span><br>
+      Account email: <span id="accountEmail">Loading...</span><br><br>
+      <strong>Security:</strong> Passwords are managed by Firebase Authentication
+      and are never displayed on this dashboard.
     </div>
   </main>
 
-  <footer>© <span id="year"></span> PALABOK COMMUNITY</footer>
+  <footer>
+    © <span id="year"></span> PALABOK COMMUNITY
+  </footer>
 </div>
 
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+  import { initializeApp } from
+    "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+
   import {
     getAuth,
     onAuthStateChanged,
     signOut
   } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
 
+  import {
+    getFirestore,
+    doc,
+    getDoc
+  } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
   const firebaseConfig = {
-    apiKey: "AIzaSyBtu_ambv4HRDJwboKwieDK7JcbOdyJmc",
+    apiKey: "AIzaSyBtu_ambv4HRDJwboKwieKD7JcbOdyhJmc",
     authDomain: "palabok-community.firebaseapp.com",
     projectId: "palabok-community",
     storageBucket: "palabok-community.firebasestorage.app",
@@ -109,57 +208,158 @@
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
+  const db = getFirestore(app);
 
-  document.getElementById("year").textContent = new Date().getFullYear();
+  const $ = id => document.getElementById(id);
 
-  onAuthStateChanged(auth, async (user) => {
+  $("year").textContent = new Date().getFullYear();
+
+  function showDashboardError(text) {
+    $("loading").textContent = text;
+  }
+
+  function normalizeRole(value) {
+    const role = String(value || "MEMBER")
+      .trim()
+      .toUpperCase()
+      .replaceAll("-", "_")
+      .replaceAll(" ", "_");
+
+    const allowedRoles = [
+      "OWNER",
+      "CO_OWNER",
+      "ADMIN",
+      "MODERATOR",
+      "STAFF",
+      "EVENT_MANAGER",
+      "COMMUNITY_MANAGER",
+      "MEMBER"
+    ];
+
+    return allowedRoles.includes(role) ? role : "MEMBER";
+  }
+
+  function roleName(role) {
+    return role.replaceAll("_", " ");
+  }
+
+  function renderCustomFeatures(role) {
+    const features = {
+      MODERATOR: [
+        ["🛡️", "Moderation Tools", "Moderation features assigned to moderators.", "moderation.html"]
+      ],
+      STAFF: [
+        ["📌", "Staff Workspace", "Access your assigned staff tools.", "staff-room.html"]
+      ],
+      EVENT_MANAGER: [
+        ["📅", "Event Management", "Manage community events.", "events.html"]
+      ],
+      COMMUNITY_MANAGER: [
+        ["🌐", "Community Management", "Manage assigned community activities.", "community-management.html"]
+      ],
+      ADMIN: [
+        ["⚙️", "Administration", "Access assigned administrative features.", "admin.html"]
+      ]
+    };
+
+    const list = features[role] || [];
+
+    if (!list.length) return;
+
+    $("customSection").classList.remove("hidden");
+
+    $("customFeatures").innerHTML = list.map(item => `
+      <a class="card" href="${item[3]}">
+        <div class="card-icon">${item[0]}</div>
+        <h3>${item[1]}</h3>
+        <p>${item[2]}</p>
+      </a>
+    `).join("");
+  }
+
+  onAuthStateChanged(auth, async user => {
     if (!user) {
       window.location.replace("login.html");
       return;
     }
 
     try {
-      const tokenResult = await user.getIdTokenResult(true);
-      const claims = tokenResult.claims;
+      // Each account's profile is stored at users/{Firebase UID}.
+      const profileRef = doc(db, "users", user.uid);
+      const profileSnapshot = await getDoc(profileRef);
 
+      // A missing profile always defaults to MEMBER.
+      const profile = profileSnapshot.exists()
+        ? profileSnapshot.data()
+        : {};
+
+      const role = normalizeRole(profile.role);
       const name =
-        claims.discordUsername ||
+        profile.displayName ||
         user.displayName ||
+        user.email?.split("@")[0] ||
         "Community Member";
 
-      document.getElementById("displayName").textContent = name;
-      document.getElementById("username").textContent = name;
+      $("displayName").textContent = name;
+      $("username").textContent = name;
+      $("email").textContent = user.email || "No email";
+      $("accountEmail").textContent = user.email || "No email";
 
-      const avatarHash = claims.discordAvatar;
-      const discordId = claims.discordId;
+      $("roleBadge").textContent = roleName(role);
+      $("accountRole").textContent = roleName(role);
+      $("authStatus").textContent = "Authenticated";
 
-      if (discordId && avatarHash) {
-        document.getElementById("avatar").src =
-          `https://cdn.discordapp.com/avatars/${encodeURIComponent(discordId)}/${encodeURIComponent(avatarHash)}.png`;
-      } else {
-        document.getElementById("avatar").src =
-          "https://cdn.discordapp.com/embed/avatars/0.png";
+      if (profile.photoURL || user.photoURL) {
+        $("avatar").src = profile.photoURL || user.photoURL;
       }
 
-      document.getElementById("loading").style.display = "none";
-      document.getElementById("app").style.display = "block";
+      if (role === "OWNER" || role === "CO_OWNER") {
+        $("dashboardLabel").textContent =
+          role === "OWNER" ? "OWNER CONTROL CENTER" : "CO-OWNER CONTROL CENTER";
+
+        $("welcomeText").textContent =
+          "You have authorized full administrative access to PALABOK COMMUNITY.";
+
+        $("adminSection").classList.remove("hidden");
+
+      } else if (role === "MEMBER") {
+        $("dashboardLabel").textContent = "MEMBER CONTROL CENTER";
+
+        $("welcomeText").textContent =
+          "Welcome to the community! You can explore available features and participate in General Chat.";
+
+      } else {
+        $("dashboardLabel").textContent =
+          roleName(role) + " DASHBOARD";
+
+        $("welcomeText").textContent =
+          "Welcome! Your dashboard displays features assigned to your community role.";
+
+        renderCustomFeatures(role);
+      }
+
+      $("loading").style.display = "none";
+      $("app").style.display = "block";
 
     } catch (error) {
-      console.error("Account loading failed:", error);
-      document.getElementById("loading").textContent =
-        "Unable to load your account. Please refresh or log in again.";
+      console.error("Dashboard loading error:", error);
+
+      showDashboardError(
+        "Unable to load your account information. Please check your connection or Firebase Firestore configuration."
+      );
     }
   });
 
-  document.getElementById("logoutBtn").addEventListener("click", async () => {
+  $("logoutBtn").addEventListener("click", async () => {
     try {
       await signOut(auth);
       window.location.replace("login.html");
     } catch (error) {
+      console.error("Logout error:", error);
       alert("Logout failed. Please try again.");
-      console.error(error);
     }
   });
 </script>
+
 </body>
 </html>
