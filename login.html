@@ -4,141 +4,294 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Palabok Community | Login</title>
-  <meta name="theme-color" content="#111827">
+  <meta name="theme-color" content="#081326">
+  <title>Login | PALABOK COMMUNITY</title>
 
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
     body {
-      margin: 0;
       min-height: 100vh;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       padding: 20px;
-      font-family: Arial, sans-serif;
+      background:
+        radial-gradient(circle at top, #17345b, transparent 45%),
+        #081326;
       color: #fff;
-      background: linear-gradient(135deg, #111827, #312e81, #111827);
     }
 
     .container {
       width: 100%;
       max-width: 420px;
-      padding: 35px 25px;
-      text-align: center;
-      background: rgba(17, 24, 39, .94);
-      border: 1px solid #374151;
-      border-radius: 20px;
+      padding: 32px 26px;
+      background: #101f35;
+      border: 1px solid #263c5b;
+      border-radius: 18px;
       box-shadow: 0 20px 60px #0008;
     }
 
     .logo {
-      font-size: 48px;
-      margin-bottom: 10px;
+      text-align: center;
+      margin-bottom: 26px;
     }
 
-    h1 { margin: 8px 0; font-size: 27px; }
+    .logo-icon {
+      width: 66px;
+      height: 66px;
+      margin: auto auto 14px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: #f0a52b;
+      color: #081326;
+      font-size: 30px;
+      font-weight: 900;
+    }
+
+    h1 {
+      font-size: 23px;
+      letter-spacing: 1px;
+    }
 
     .subtitle {
-      color: #9ca3af;
-      font-size: 14px;
-      line-height: 1.6;
-      margin-bottom: 28px;
+      margin-top: 8px;
+      color: #9eafc5;
+      font-size: 13px;
     }
 
-    .discord-btn {
-      display: block;
-      width: 100%;
-      padding: 15px;
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+      padding: 5px;
+      background: #091629;
       border-radius: 10px;
-      background: #5865F2;
-      color: white;
-      font-size: 16px;
-      font-weight: bold;
-      text-decoration: none;
+    }
+
+    .tabs button {
+      flex: 1;
+      padding: 11px;
       border: none;
+      border-radius: 7px;
+      background: transparent;
+      color: #9eafc5;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .tabs button.active {
+      background: #f0a52b;
+      color: #081326;
+    }
+
+    .field {
+      margin-bottom: 17px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #dce6f4;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #304766;
+      border-radius: 9px;
+      outline: none;
+      background: #091629;
+      color: white;
+      font-size: 15px;
+    }
+
+    input:focus {
+      border-color: #f0a52b;
+    }
+
+    .password-wrap {
+      position: relative;
+    }
+
+    .password-wrap input {
+      padding-right: 75px;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: transparent;
+      color: #f0a52b;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .forgot {
+      display: block;
+      margin: -4px 0 18px;
+      text-align: right;
+      color: #f0a52b;
+      font-size: 13px;
       cursor: pointer;
     }
 
-    .discord-btn:hover { background: #4752c4; }
-
-    .discord-btn:disabled {
-      opacity: .6;
-      cursor: wait;
+    .main-button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 9px;
+      background: #f0a52b;
+      color: #081326;
+      font-size: 15px;
+      font-weight: 900;
+      cursor: pointer;
     }
 
-    #status {
+    .main-button:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+    }
+
+    .message {
       display: none;
-      margin-top: 20px;
-      padding: 13px;
-      border-radius: 9px;
+      padding: 12px;
+      margin-bottom: 17px;
+      border-radius: 8px;
       font-size: 13px;
       line-height: 1.5;
       overflow-wrap: anywhere;
     }
 
-    .info {
-      display: block !important;
-      background: #1e3a8a;
-      color: #dbeafe;
+    .message.error {
+      display: block;
+      background: #4b1e2a;
+      color: #ffb9c4;
     }
 
-    .success {
-      display: block !important;
-      background: #064e3b;
-      color: #d1fae5;
-    }
-
-    .error {
-      display: block !important;
-      background: #7f1d1d;
-      color: #fee2e2;
+    .message.success {
+      display: block;
+      background: #163e32;
+      color: #a8f0d0;
     }
 
     .footer {
-      color: #6b7280;
-      font-size: 12px;
       margin-top: 25px;
+      text-align: center;
+      color: #788ba5;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .hidden {
+      display: none;
     }
   </style>
 </head>
 
 <body>
+
   <main class="container">
-    <div class="logo">🍜</div>
 
-    <h1>Palabok Community</h1>
+    <div class="logo">
+      <div class="logo-icon">P</div>
+      <h1>PALABOK COMMUNITY</h1>
+      <p class="subtitle">Community Management Portal</p>
+    </div>
 
-    <p class="subtitle">
-      Welcome! Sign in using your Discord account
-      to access the community portal.
-    </p>
+    <div class="tabs">
+      <button id="loginTab" class="active" type="button">LOGIN</button>
+      <button id="registerTab" type="button">REGISTER</button>
+    </div>
 
-    <a
-      id="discordLogin"
-      class="discord-btn"
-      href="https://palabok-discord-auth.castillanojomer10.workers.dev/auth/discord"
-    >
-      Login with Discord
-    </a>
+    <div id="message" class="message"></div>
 
-    <div id="status" role="status" aria-live="polite"></div>
+    <form id="authForm">
+
+      <div class="field">
+        <label for="email">Email Address</label>
+        <input
+          id="email"
+          type="email"
+          placeholder="Enter your email"
+          autocomplete="email"
+          required
+        >
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+
+        <div class="password-wrap">
+          <input
+            id="password"
+            type="password"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            minlength="6"
+            required
+          >
+
+          <button
+            class="toggle-password"
+            id="togglePassword"
+            type="button"
+          >SHOW</button>
+        </div>
+      </div>
+
+      <div id="confirmField" class="field hidden">
+        <label for="confirmPassword">Confirm Password</label>
+        <input
+          id="confirmPassword"
+          type="password"
+          placeholder="Confirm your password"
+          minlength="6"
+        >
+      </div>
+
+      <span id="forgotPassword" class="forgot">
+        Forgot Password?
+      </span>
+
+      <button class="main-button" id="submitButton" type="submit">
+        LOGIN
+      </button>
+
+    </form>
 
     <div class="footer">
-      Palabok Community Portal
+      © 2026 PALABOK COMMUNITY<br>
+      Secure Authentication System
     </div>
+
   </main>
 
   <script type="module">
-    import { initializeApp } from
-      "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+    import { initializeApp }
+      from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
 
     import {
       getAuth,
-      signInWithCustomToken
-    } from
-      "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+      setPersistence,
+      browserLocalPersistence,
+      signInWithEmailAndPassword,
+      createUserWithEmailAndPassword,
+      sendPasswordResetEmail,
+      onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyBtu_ambv4HRDJwboKwieKD7JcbOdyhJmc",
@@ -150,95 +303,171 @@
       measurementId: "G-LR9VNJ0V3C"
     };
 
-    const WORKER_URL =
-      "https://palabok-discord-auth.castillanojomer10.workers.dev";
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
 
-    const DASHBOARD_URL =
-      "https://palaboks.github.io/Palabok/dashboard.html";
+    const form = document.getElementById("authForm");
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const confirmInput = document.getElementById("confirmPassword");
+    const confirmField = document.getElementById("confirmField");
+    const message = document.getElementById("message");
+    const submitButton = document.getElementById("submitButton");
+    const loginTab = document.getElementById("loginTab");
+    const registerTab = document.getElementById("registerTab");
+    const forgotPassword = document.getElementById("forgotPassword");
 
-    const statusBox = document.getElementById("status");
-    const loginButton = document.getElementById("discordLogin");
+    let mode = "login";
 
-    function showStatus(message, type) {
-      statusBox.textContent = message;
-      statusBox.className = type;
+    const DASHBOARD_URL = "./dashboard.html";
+
+    function showMessage(text, type = "error") {
+      message.textContent = text;
+      message.className = "message " + type;
     }
 
-    loginButton.href = WORKER_URL + "/auth/discord";
+    function clearMessage() {
+      message.textContent = "";
+      message.className = "message";
+    }
 
-    async function startLogin() {
-      const app = initializeApp(firebaseConfig);
-      const auth = getAuth(app);
+    function setMode(newMode) {
+      mode = newMode;
+      clearMessage();
 
-      const params = new URLSearchParams(
-        window.location.hash.substring(1)
-      );
+      const registering = mode === "register";
 
-      const token = params.get("firebaseCustomToken");
-      const error = new URLSearchParams(
-        window.location.search
-      ).get("error");
+      loginTab.classList.toggle("active", !registering);
+      registerTab.classList.toggle("active", registering);
 
-      // Remove token/error from browser address bar.
-      if (window.location.hash || error) {
-        window.history.replaceState(
-          null,
-          "",
-          window.location.pathname
-        );
-      }
+      confirmField.classList.toggle("hidden", !registering);
+      confirmInput.required = registering;
 
-      if (error) {
-        showStatus(
-          "Discord login error: " + error,
-          "error"
-        );
+      forgotPassword.classList.toggle("hidden", registering);
+
+      passwordInput.autocomplete = registering
+        ? "new-password"
+        : "current-password";
+
+      submitButton.textContent = registering
+        ? "CREATE ACCOUNT"
+        : "LOGIN";
+    }
+
+    loginTab.addEventListener("click", () => setMode("login"));
+    registerTab.addEventListener("click", () => setMode("register"));
+
+    document.getElementById("togglePassword")
+      .addEventListener("click", () => {
+        const visible = passwordInput.type === "text";
+        passwordInput.type = visible ? "password" : "text";
+
+        document.getElementById("togglePassword").textContent =
+          visible ? "SHOW" : "HIDE";
+      });
+
+    function friendlyError(error) {
+      const errors = {
+        "auth/invalid-email": "Invalid email address.",
+        "auth/user-not-found": "Walang account na gumagamit ng email na ito.",
+        "auth/wrong-password": "Incorrect password.",
+        "auth/invalid-credential": "Incorrect email or password.",
+        "auth/email-already-in-use": "May account na gamit ang email na ito.",
+        "auth/weak-password": "Use a stronger password with at least 6 characters.",
+        "auth/too-many-requests": "Too many attempts. Please try again later.",
+        "auth/network-request-failed": "Internet connection problem.",
+        "auth/operation-not-allowed": "Email/Password login is not enabled in Firebase.",
+        "auth/invalid-api-key": "Firebase API key is invalid."
+      };
+
+      return errors[error.code] || error.message || "Something went wrong.";
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      clearMessage();
+
+      const email = emailInput.value.trim();
+      const password = passwordInput.value;
+
+      if (!email || !password) {
+        showMessage("Please enter your email and password.");
         return;
       }
 
-      if (!token) {
+      if (mode === "register" &&
+          password !== confirmInput.value) {
+        showMessage("Passwords do not match.");
         return;
       }
 
-      loginButton.style.display = "none";
-
-      showStatus(
-        "Connecting to Firebase. Please wait...",
-        "info"
-      );
+      submitButton.disabled = true;
+      submitButton.textContent = "PLEASE WAIT...";
 
       try {
-        await signInWithCustomToken(auth, token);
+        await setPersistence(auth, browserLocalPersistence);
 
-        showStatus(
-          "Login successful! Opening your dashboard...",
+        if (mode === "register") {
+          await createUserWithEmailAndPassword(
+            auth,
+            email,
+            password
+          );
+
+          showMessage(
+            "Account created successfully! Redirecting...",
+            "success"
+          );
+
+          window.location.replace(DASHBOARD_URL);
+
+        } else {
+          await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+          );
+
+          showMessage("Login successful! Redirecting...", "success");
+
+          window.location.replace(DASHBOARD_URL);
+        }
+
+      } catch (error) {
+        showMessage(friendlyError(error));
+        submitButton.disabled = false;
+        submitButton.textContent =
+          mode === "register" ? "CREATE ACCOUNT" : "LOGIN";
+      }
+    });
+
+    forgotPassword.addEventListener("click", async () => {
+      const email = emailInput.value.trim();
+
+      if (!email) {
+        showMessage("Enter your email address first.");
+        emailInput.focus();
+        return;
+      }
+
+      try {
+        await sendPasswordResetEmail(auth, email);
+
+        showMessage(
+          "Password reset email sent. Check your inbox.",
           "success"
         );
-
-        window.location.replace(DASHBOARD_URL);
-
-      } catch (err) {
-        console.error("Firebase login error:", err);
-
-        showStatus(
-          "Firebase login failed: " +
-          (err.code || err.message) +
-          ". Please check the Cloudflare Worker configuration.",
-          "error"
-        );
-
-        loginButton.style.display = "block";
+      } catch (error) {
+        showMessage(friendlyError(error));
       }
-    }
+    });
 
-    startLogin().catch(error => {
-      console.error(error);
-
-      showStatus(
-        "Unable to initialize Firebase: " + error.message,
-        "error"
-      );
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        window.location.replace(DASHBOARD_URL);
+      }
     });
   </script>
+
 </body>
 </html>
